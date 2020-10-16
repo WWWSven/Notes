@@ -11,6 +11,6 @@ echo %~dp0
 git status
 git add .
 git commit -m "autoCommit %dd:/=-% %tt%"
-git push origin master
+git push origin master 
 
 pause
