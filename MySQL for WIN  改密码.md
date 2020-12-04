@@ -1,7 +1,7 @@
 # MySQL for WIN  改密码
 
 - ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
- 
+
 以管理员权限运行powershell，关闭mysqld进程
 > tasklist | findstr mysqld 
 > taskkill /F /PID xxxx 

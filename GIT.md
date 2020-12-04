@@ -20,7 +20,7 @@ git clone -b v0.1 地址			指定tag下载代码
 
 ### 免密码登陆
 
-1. url
+1. https
 
    ```
    git remote add origin https://用户名:密码@github.com/yh/test.git
@@ -85,4 +85,10 @@ git clone -b v0.1 地址			指定tag下载代码
             > Hi username! You've successfully authenticated, but GitHub does not provide shell access.
             ```
 
+### push empty folder
 
+```shell
+find . -type d -empty -exec touch {}/.gitkeep \;
+```
+
+- https://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository
