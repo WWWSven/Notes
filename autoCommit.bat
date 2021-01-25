@@ -6,7 +6,7 @@ set hour=%tt:~0,2%
 echo =======================================================
 echo          Starting autoCommit.bat
 echo =======================================================
-cd C:\Users\yh\Desktop\Programming\mdFile
+cd C:\Notes
 echo %~dp0
 git status
 git add .
