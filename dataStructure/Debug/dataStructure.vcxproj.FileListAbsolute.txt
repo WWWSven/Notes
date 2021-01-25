@@ -1,0 +1,2 @@
+C:\My_cpp\Learn\dataStructure\Debug\dataStructure.exe
+C:\My_cpp\Learn\dataStructure\Debug\dataStructure.pdb
