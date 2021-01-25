@@ -1,5 +1,1 @@
-﻿  单链表（按位查找+带头节点）.cpp
-  单链表（按值查找+带头节点）.cpp
-  单链表（求表长度）.cpp
-  正在生成代码...
-  dataStructure.vcxproj -> C:\My_cpp\Learn\dataStructure\Debug\dataStructure.exe
+﻿LINK : fatal error LNK1104: 无法打开文件“C:\Notes\dataStructure\Debug\dataStructure.exe”

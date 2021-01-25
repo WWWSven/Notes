@@ -147,6 +147,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="单链表的建立（头插）.cpp" />
+    <ClCompile Include="单链表的建立（尾插2）.cpp" />
+    <ClCompile Include="单链表的建立（尾插）.cpp" />
     <ClCompile Include="单链表（不带头节点）.cpp" />
     <ClCompile Include="单链表（指定节点的删除）.cpp" />
     <ClCompile Include="单链表（按位序删除+带头节点）.cpp" />
