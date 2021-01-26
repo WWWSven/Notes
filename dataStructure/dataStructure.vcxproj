@@ -147,28 +147,75 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="单链表的建立（头插）.cpp" />
-    <ClCompile Include="单链表的建立（尾插2）.cpp" />
-    <ClCompile Include="单链表的建立（尾插）.cpp" />
-    <ClCompile Include="单链表（不带头节点）.cpp" />
-    <ClCompile Include="单链表（指定节点的删除）.cpp" />
-    <ClCompile Include="单链表（按位序删除+带头节点）.cpp" />
-    <ClCompile Include="单链表（指定节点的前插2）.cpp" />
-    <ClCompile Include="单链表（指定节点的前插）.cpp" />
-    <ClCompile Include="单链表（按位插入+不带头节点）.cpp" />
-    <ClCompile Include="单链表（带头节点）.cpp" />
-    <ClCompile Include="单链表（按位插入+带头节点）.cpp" />
-    <ClCompile Include="单链表（指定节点的后插）.cpp" />
-    <ClCompile Include="单链表（按位查找+带头节点）.cpp" />
-    <ClCompile Include="单链表（按值查找+带头节点）.cpp" />
-    <ClCompile Include="单链表（求表长度）.cpp" />
-    <ClCompile Include="线性表的查找（按位+动态分配）.cpp" />
-    <ClCompile Include="线性表的查找（按位+静态分配）.cpp" />
-    <ClCompile Include="线性表的查找（按值+动态分配）.cpp" />
-    <ClCompile Include="顺序表的删除.cpp" />
-    <ClCompile Include="顺序表的插入.cpp" />
-    <ClCompile Include="顺序表（动态分配）.cpp" />
-    <ClCompile Include="顺序表（静态分配）.cpp" />
+    <ClCompile Include="单链表的建立（头插2）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表的建立（头插）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表的建立（尾插2）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表的建立（尾插）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（不带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（指定节点的删除）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（按位序删除+带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（指定节点的前插2）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（指定节点的前插）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（按位插入+不带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（按位插入+带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（指定节点的后插）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（按位查找+带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（按值查找+带头节点）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="单链表（求表长度）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="线性表的查找（按位+动态分配）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="线性表的查找（按位+静态分配）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="线性表的查找（按值+动态分配）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="顺序表的删除.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="顺序表的插入.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="顺序表（动态分配）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="顺序表（静态分配）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
