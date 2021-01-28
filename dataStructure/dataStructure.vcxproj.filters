@@ -19,6 +19,9 @@
     <Filter Include="源文件\栈">
       <UniqueIdentifier>{cd16d04c-3a11-49d7-a3a2-0d7d7045ccf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\表\其他链表">
+      <UniqueIdentifier>{688a25df-0b25-4c5b-adbd-8de56ce756c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="单链表（按位插入+不带头节点）.cpp">
@@ -90,8 +93,23 @@
     <ClCompile Include="线性表的查找（按值+动态分配）.cpp">
       <Filter>源文件\表</Filter>
     </ClCompile>
-    <ClCompile Include="顺序栈（定义）.cpp">
+    <ClCompile Include="顺序栈（共享栈）.cpp">
       <Filter>源文件\栈</Filter>
+    </ClCompile>
+    <ClCompile Include="栈（链式存储）.cpp">
+      <Filter>源文件\栈</Filter>
+    </ClCompile>
+    <ClCompile Include="栈（顺序存储）.cpp">
+      <Filter>源文件\栈</Filter>
+    </ClCompile>
+    <ClCompile Include="双向链表.cpp">
+      <Filter>源文件\表\其他链表</Filter>
+    </ClCompile>
+    <ClCompile Include="循环链表.cpp">
+      <Filter>源文件\表\其他链表</Filter>
+    </ClCompile>
+    <ClCompile Include="静态链表.cpp">
+      <Filter>源文件\表\其他链表</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -195,6 +195,9 @@
     <ClCompile Include="单链表（求表长度）.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="双向链表.cpp" />
+    <ClCompile Include="循环链表.cpp" />
+    <ClCompile Include="栈（链式存储）.cpp" />
     <ClCompile Include="线性表的查找（按位+动态分配）.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -204,7 +207,11 @@
     <ClCompile Include="线性表的查找（按值+动态分配）.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="顺序栈（定义）.cpp" />
+    <ClCompile Include="静态链表.cpp" />
+    <ClCompile Include="顺序栈（共享栈）.cpp" />
+    <ClCompile Include="栈（顺序存储）.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="顺序表的删除.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
