@@ -15,7 +15,7 @@ bool listInsert(linkList& L, int i, int e) {
 	if (i < 1)
 		return false;
 	// 重点begin(不带头节点的单链表在第一个节点的操作与其他节点操作不同)
-	if (i==1)
+	if (i == 1)
 	{
 		listNode* s = (listNode*)malloc(sizeof(listNode));
 		s->data = e;
@@ -45,8 +45,8 @@ int main() {
 	if (initList(L))
 		printf("init 成功! \n");
 	if (listInsert(L, 1, 1))
-		printf("insert %d 在第1个节点! \n",L->data);
+		printf("insert %d 在第1个节点! \n", L->data);
 	if (listInsert(L, 2, 3))
-		printf("insert %d 在第2个节点! \n",L->next->data);
+		printf("insert %d 在第2个节点! \n", L->next->data);
 	return 0;
 }

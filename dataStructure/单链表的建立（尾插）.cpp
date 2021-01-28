@@ -16,9 +16,9 @@ typedef struct listNode {
 	- 正向建立单链表
 	- 指针r的出现是因为没有必要每次都遍历到最后一个元素
 */
-linkList listTailInsert(linkList& L,int& length) {
+linkList listTailInsert(linkList& L, int& length) {
 	length = 0; // 记录节点个数
-	int x; 
+	int x;
 	L = (listNode*)malloc(sizeof(listNode)); // 建立头节点
 	listNode* s;
 	listNode* r = L; // r 为表尾指针

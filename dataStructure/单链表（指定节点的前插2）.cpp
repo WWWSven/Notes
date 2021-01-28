@@ -57,7 +57,7 @@ int main() {
 	S->next = NULL;
 	S->data = 2;
 	// 前插开始
-	if(insertPriorNode(L->next->next, S))
+	if (insertPriorNode(L->next->next, S))
 		printf("insert 2 在第二个元素之前！\n");
 	// 前插结束
 	printf("--------------------打印链表------------------\n");

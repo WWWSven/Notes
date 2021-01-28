@@ -204,6 +204,7 @@
     <ClCompile Include="线性表的查找（按值+动态分配）.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="顺序栈（定义）.cpp" />
     <ClCompile Include="顺序表的删除.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>

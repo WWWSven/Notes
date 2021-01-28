@@ -5,9 +5,9 @@
 	删除指定节点p需要修改其前驱节点的next指针；
 	指定节点的删除：
 	  1，传入头指针，循环寻找p的前驱节点；（这个方法视频没给把？2021-01-20 13:02）
-	    - 时间复杂度：O（n）
+		- 时间复杂度：O（n）
 	  2，对p和p的后继节点进行数据交换，随后删除p的后继节点
-	    - 优点：时间复杂度O（1）
+		- 优点：时间复杂度O（1）
 		- 缺点：如果p是最后一个节点，要使用第一种方法，否则空指针异常；
 */
 typedef struct listNode {
@@ -35,7 +35,7 @@ bool listInsert(linkList& L, int i, int e) {
 	}
 	// 一个小细节：如果不对p==null进行处理，下面对p的引用会警告：提示取消对null指针p的引用
 	if (p == NULL)
-		return false; 
+		return false;
 	listNode* s = (listNode*)malloc(sizeof(listNode));
 	s->data = e;
 	s->next = p->next;
@@ -50,7 +50,7 @@ bool deleteNode1(listNode* p) {
 }
 
 // 方法二：调换p的p后继节点的数据
-bool deleteNode2(listNode* p,int& e) {
+bool deleteNode2(listNode* p, int& e) {
 	if (p == NULL)
 		return false;
 	e = p->data; // 返回被删除的数据
@@ -77,7 +77,7 @@ int main() {
 		printf("insert %d 在第3个节点! \n", L->next->next->data);
 
 	printf("-------打印链表------------------ \n");
-	linkList Ltemp=L;
+	linkList Ltemp = L;
 	for (int i = 0; i < 3; i++)
 	{
 		Ltemp = Ltemp->next;
@@ -87,7 +87,7 @@ int main() {
 
 
 	// 删除开始
-	int e=NULL;
+	int e = NULL;
 	if (deleteNode2(L->next->next, e))
 		printf("delete 第2个元素：%d \n", e);
 	// 删除结束

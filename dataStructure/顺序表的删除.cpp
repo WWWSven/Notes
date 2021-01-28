@@ -7,11 +7,11 @@ struct SequenceList
 	int length;
 };
 
-void initSequenceList(SequenceList &L) {
+void initSequenceList(SequenceList& L) {
 	L.length = 0;
 }
 
-bool listDelete(SequenceList &L,int i,int &e) {
+bool listDelete(SequenceList& L, int i, int& e) {
 	if (i<1 || i>L.length)
 		return false;
 	e = L.data[i - 1];
@@ -32,11 +32,11 @@ int main() {
 	printf("Î´É¾³ýÇ°£º\n");
 	for (int i = 0; i < L.length; i++)
 	{
-		printf("k£º%d , v: %d \n",i,L.data[i]);
+		printf("k£º%d , v: %d \n", i, L.data[i]);
 	}
 
 	int e = -1;
-	if (listDelete(L,8,e))
+	if (listDelete(L, 8, e))
 	{
 		printf("É¾³ýºó£º\n");
 		for (int i = 0; i < L.length; i++)

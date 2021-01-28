@@ -28,7 +28,7 @@ bool listInsert(linkList& L, int i, int e) {
 	if (p == NULL) return false;
 	listNode* s = (listNode*)malloc(sizeof(listNode));
 	s->data = e;
-	s->next = p->next;	
+	s->next = p->next;
 	p->next = s;
 	return true;
 }

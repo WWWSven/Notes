@@ -26,6 +26,6 @@ bool empty(linkList L) {
 int main() {
 	linkList L; // 声明一个指向单链表的指针
 	initList(L); // 初始化一个空表
-	printf("%d",empty(L));
+	printf("%d", empty(L));
 	return 0;
 }

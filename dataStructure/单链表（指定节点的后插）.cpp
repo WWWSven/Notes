@@ -20,7 +20,7 @@ bool initList(linkList& L) {
 }
 
 // 后插：在p节点之后插入元素e
-bool insertNextNode(listNode* p,int e) {
+bool insertNextNode(listNode* p, int e) {
 	if (p == NULL)
 		return false;
 	listNode* s = (listNode*)malloc(sizeof(listNode));
@@ -48,12 +48,12 @@ bool listInsert(linkList L, int i, int e) {
 
 int main() {
 	linkList L;
-	if(initList(L))
+	if (initList(L))
 		printf("init 成功! \n");
 	if (listInsert(L, 1, 1))
-		printf("insert %d 在第1个节点! \n",L->next->data);
+		printf("insert %d 在第1个节点! \n", L->next->data);
 	if (listInsert(L, 2, 3))
-		printf("insert %d 在第2个节点! \n",L->next->next->data);
+		printf("insert %d 在第2个节点! \n", L->next->next->data);
 	if (insertNextNode(L->next, 2)) // 进行后插
 		printf("在第1个节点后插入2！ \n");
 	printf("-------------------------------\n");

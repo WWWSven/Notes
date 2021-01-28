@@ -7,11 +7,11 @@ struct SequenceList
 	int length; // 顺序表当前的长度
 };
 
-void InitList(SequenceList & L) {
+void InitList(SequenceList& L) {
 	L.length = 0;
 }
 
-bool ListInsert(SequenceList & L, int i, int e) {
+bool ListInsert(SequenceList& L, int i, int e) {
 	if (i<1 || i>L.length + 1) { // 判断插入的位置是否有效		
 		return false;
 	}
@@ -23,7 +23,7 @@ bool ListInsert(SequenceList & L, int i, int e) {
 	*/
 	//for (int j = i - 1; j < L.length; j++)
 		//L.data[j + 1] = L.data[j];
-	for (int j = L.length; j >= i; j--) 
+	for (int j = L.length; j >= i; j--)
 		L.data[j] = L.data[j - 1];
 	L.data[i - 1] = e;
 	L.length++;
@@ -38,10 +38,10 @@ int main() {
 	L.data[2] = 4;
 	L.data[3] = 5;
 	L.length = 4;
-	ListInsert(L,3,3);
+	ListInsert(L, 3, 3);
 	for (int i = 0; i < L.length; i++)
 	{
-		printf("第%d个元素：%d \n", i+1, L.data[i]);
+		printf("第%d个元素：%d \n", i + 1, L.data[i]);
 	}
 	return 0;
 }

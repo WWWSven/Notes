@@ -4,9 +4,9 @@
 typedef struct linkNode { // 定义单链表节点类型
 	int data; // 每个节点存放一个数据元素
 	struct linkNode* next; // 指针指向下一个节点
-}linkNode, * linkList; 
+}linkNode, * linkList;
 
-bool initList(linkList &L) {
+bool initList(linkList& L) {
 	L = (linkNode*)malloc(sizeof(linkNode));
 	if (L == NULL)
 		return false;
@@ -14,7 +14,7 @@ bool initList(linkList &L) {
 	return true;
 }
 
-bool listInsert(linkList &L,int i,int e) {
+bool listInsert(linkList& L, int i, int e) {
 	if (i < 1)
 		return false;
 	linkNode* p; // p指向当前扫描到的节点
@@ -29,7 +29,7 @@ bool listInsert(linkList &L,int i,int e) {
 	linkNode* s = (linkNode*)malloc(sizeof(linkNode));
 	s->data = e;
 	s->next = p->next;
-	p->next = s; 
+	p->next = s;
 	return true;
 }
 
@@ -38,8 +38,8 @@ int main() {
 	if (initList(L))
 		printf("init 成功! \n");
 	if (listInsert(L, 1, 1))
-		printf("insert %d 在第1个节点! \n",L->next->data);
+		printf("insert %d 在第1个节点! \n", L->next->data);
 	if (listInsert(L, 2, 3))
-		printf("insert %d 在第2个节点! \n",L->next->next->data);
+		printf("insert %d 在第2个节点! \n", L->next->next->data);
 	return 0;
 }

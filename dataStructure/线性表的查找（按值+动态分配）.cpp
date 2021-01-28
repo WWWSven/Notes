@@ -15,7 +15,7 @@ void initList(sequenceList& L) {
 }
 
 // 在顺序表L中查找第一个元素值等于e的元素，并返回其位序
-int locateElem(sequenceList L,int e){
+int locateElem(sequenceList L, int e) {
 	for (int i = 0; i < L.length; i++)
 		if (L.data[i] == e)
 			return i + 1; // 位序从1开始，为数组下标+1
@@ -30,6 +30,6 @@ int main() {
 	L.data[2] = 3;
 	L.length = 3;
 	printf("%d \n", locateElem(L, 2));
-	printf("%d \n",locateElem(L, 999));
+	printf("%d \n", locateElem(L, 999));
 	return 0;
 }

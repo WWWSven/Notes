@@ -8,14 +8,14 @@ struct sequenceList
 	int length; // 顺序表的当前长度
 };
 
-void initList(sequenceList &L) {
-	L.data = (int*)malloc(sizeof(int)*initSize);
+void initList(sequenceList& L) {
+	L.data = (int*)malloc(sizeof(int) * initSize);
 	L.maxSize = initSize;
 	L.length = 0;
 }
 
-int getElem(sequenceList L,int i) {
-	if (i>1&&i<L.length)
+int getElem(sequenceList L, int i) {
+	if (i > 1 && i < L.length)
 	{
 		return L.data[i - 1];
 	}

@@ -6,8 +6,8 @@ struct sequenceList
 	int length; // 顺序表的当前长度
 };
 
-int getElem(sequenceList L,int i) {
-	if (i>1&&i<L.length)
+int getElem(sequenceList L, int i) {
+	if (i > 1 && i < L.length)
 	{
 		return L.data[i - 1];
 	}
