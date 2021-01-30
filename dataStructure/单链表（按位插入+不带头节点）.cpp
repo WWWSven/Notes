@@ -19,7 +19,7 @@ bool listInsert(linkList& L, int i, int e) {
 	{
 		listNode* s = (listNode*)malloc(sizeof(listNode));
 		s->data = e;
-		s->next = L;
+		s->next = L; // 2021-01-29 19:21 L=null
 		L = s; // 头节点指向malloc出来的新节点
 		return true;
 	}
