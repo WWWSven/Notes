@@ -60,7 +60,7 @@ bool deleteNode2(listNode* p, int& e) {
 	*/
 	listNode* q = p->next; // q指向p的后继节点
 	p->data = q->data; // 先交换数据，后改指针
-	p->next = q->next; // 该指针，将q从链表中断开
+	p->next = q->next; // 改指针，将q从链表中断开
 	free(q);
 	return true;
 }
