@@ -1,3 +1,7 @@
+## 开启硬件加速
+
+- help 里找到 vmoption，添加：-Dsun.java2d.opengl=true，以启动硬件加速
+
 ## idea2020.2 Tomcat Console 中文乱码
 
 - change ApacheTomcat conf Directory `Logging.properties`
