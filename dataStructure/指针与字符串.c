@@ -16,7 +16,7 @@
 		|00 01 02 03 \0|    字符串有多长就分配多长的空间
 		|10 11 \0      |    节省空间
 		+--------------+
-	2，【实例代码】
+	2，【实例代码】sort()看不懂
 3，main 函数形参的规定和使用。
 
 */
@@ -92,11 +92,32 @@ void test() {
 	print(a, n);
 	system("pause");
 }
+void sort(char* b[], int n) {
+	// 将一个给定的字符指针数组按首字母顺序从小到大排列
+	char* t;
+	int i, j, k;
+	for (i = 0; i < n - 1; i++) {
+		k = i; // 第几行？
+		for (j = i + 1; j < n; j++)
+			if (strcmp(b[k], b[j]) > 0)
+				k = j;
+		if (k != i) {
+			t = b[i];
+			b[i] = b[k];
+			b[k] = t;
+		}
+	}
+}
+void print(char* b[], int n) {
+	int i;
+	for (i = 0; i < n; i++)
+		printf("%s \n", b[i]);
+}
 
 
 
 int main() {
-
+	test();
 
 	return 0;
 }

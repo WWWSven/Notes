@@ -2,6 +2,10 @@
 
 - https://www.bilibili.com/video/BV1mt411R7Xv
 
+王爽教材练习题相关的仓库
+
+- https://github.com/NekoSilverFox/Assembly
+
 IDE
 
 - https://github.com/Dman95/SASM
