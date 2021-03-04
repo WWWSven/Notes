@@ -129,5 +129,11 @@
     <ClCompile Include="指针与字符串.c">
       <Filter>源文件\指针与结构体</Filter>
     </ClCompile>
+    <ClCompile Include="指针与函数.c">
+      <Filter>源文件\指针与结构体</Filter>
+    </ClCompile>
+    <ClCompile Include="结构体类型及结构体变量.c">
+      <Filter>源文件\指针与结构体</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
