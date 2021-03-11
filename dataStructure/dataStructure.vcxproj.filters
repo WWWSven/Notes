@@ -28,6 +28,9 @@
     <Filter Include="源文件\指针与结构体">
       <UniqueIdentifier>{c89deab1-032e-45ac-8009-3bd1f8583aee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\树">
+      <UniqueIdentifier>{388fbdd9-7b1a-4389-b0b6-bd262aad47b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="单链表（按位插入+不带头节点）.cpp">
@@ -137,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="结构体 数组_指针_数据 作为函数参数.c">
       <Filter>源文件\指针与结构体</Filter>
+    </ClCompile>
+    <ClCompile Include="二叉树的存储结构.cpp">
+      <Filter>源文件\树</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
