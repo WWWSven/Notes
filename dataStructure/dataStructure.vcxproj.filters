@@ -31,6 +31,9 @@
     <Filter Include="源文件\树">
       <UniqueIdentifier>{388fbdd9-7b1a-4389-b0b6-bd262aad47b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\homeWork">
+      <UniqueIdentifier>{4df5b3d8-e755-42c1-87c4-a7ee5e124e7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="单链表（按位插入+不带头节点）.cpp">
@@ -144,5 +147,13 @@
     <ClCompile Include="二叉树的存储结构.cpp">
       <Filter>源文件\树</Filter>
     </ClCompile>
+    <ClCompile Include="顺序表的表示与实现.cpp">
+      <Filter>源文件\homeWork</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="顺序表的表示与实现.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
