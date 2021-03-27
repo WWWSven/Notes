@@ -150,6 +150,9 @@
     <ClCompile Include="顺序表的表示与实现.cpp">
       <Filter>源文件\homeWork</Filter>
     </ClCompile>
+    <ClCompile Include="线性链表.cpp">
+      <Filter>源文件\homeWork</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="顺序表的表示与实现.h">
