@@ -154,9 +154,4 @@
       <Filter>源文件\homeWork</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="顺序表的表示与实现.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

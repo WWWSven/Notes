@@ -26,7 +26,9 @@ bool Insert(LinkList &L,int i,int e) {
 	if (p == NULL) return false;
 	LNode *foo = (LNode*)malloc(sizeof(LNode));
 	foo->data = e;
-
+	foo->next = p->next;
+	p->next = foo;
+	return true;
 }
 // 合并两个递增单链表为一个递增单链表。
 void MergeList(LinkList &La, LinkList &Lb, LinkList &Lc) {
@@ -46,15 +48,56 @@ void MergeList(LinkList &La, LinkList &Lb, LinkList &Lc) {
 			Pb = Pb->next;
 		}
 	}
-	Pc->next = Pa ? Pa : Pb;
-	free(Lb);
+	Pc->next = Pa ? Pa : Pb; // Pa = null 就next指向Pa，否则指向Pb；
+	// free Lb
+	/*LNode *TempLb;
+	while (Lb->next) {
+		 TempLb = Lb->next;
+		 Lb->next = TempLb->next;
+		 free(TempLb);
+	}*/
 }
 
+void InsertBySort(LinkList L, LNode *elem) {
+	LNode *p = L->next;
+	while (p->data < elem->data){
+		p = p->next;
+	}
+	int foo = p->data;
+	p->data = elem->data;
+	elem->data = foo;
+	elem->next = p->next;
+	p->next = elem;
+}
 void main() {
 	LinkList La; InitList(La);
-
+	int j0 = 1;
+	for (int i = 0; i < 5; i++){
+		if (Insert(La, i, i + j0)) printf("La 插入 位序=%d 成功！\n", i + 1);
+		else printf("La 插入 位序=%d 失败！\n", i + 1);
+		j0++;
+	}
 	LinkList Lb; InitList(Lb);
+	int j1 = 2;
+	for (int i = 0; i < 10; i++) {
+		if (Insert(Lb, i, i + j1)) printf("Lb 插入 位序=%d 成功！\n", i + 1);
+		else printf("Lb 插入 位序=%d 失败！\n", i + 1);
+		j1++;
+	}
 	LinkList Lc; InitList(Lc);
 	MergeList(La, Lb, Lc);
+	LinkList LcTemp = Lc; // 复制一个lc出来给insertBySort使用。
+	for (int i = 0; i < 15; i++) {
+		Lc = Lc->next;
+		printf("第%d个结点的元素：%d！\n", i, Lc->data);
+	}
 
+	LNode *p=(LNode*)malloc(sizeof(LNode));
+	p->data = 11;
+	p->next = NULL;
+	InsertBySort(LcTemp, p);
+	for (int i = 0; i < 16; i++) {
+		LcTemp = LcTemp->next;
+		printf("第%d个结点的元素：%d！\n", i, LcTemp->data);
+	}
 }
