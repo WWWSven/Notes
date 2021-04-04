@@ -67,7 +67,8 @@ git clone -b v0.1 地址			指定tag下载代码
              User chengaoang
              PreferredAuthentications publickey
              IdentityFile  ~/.ssh/github
-             ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:1080 %h %p
+             注释：ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:1080 %h %p
+             ProxyCommand "C:/Program Files/Git/mingw64/bin/connect.exe" -H 127.0.0.1:1080 %h %p 注释：-H不输入代理的密码
          
          Host gitee.com
              HostName gitee.com
