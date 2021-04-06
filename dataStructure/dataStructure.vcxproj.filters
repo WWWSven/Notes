@@ -153,5 +153,8 @@
     <ClCompile Include="线性链表.cpp">
       <Filter>源文件\homeWork</Filter>
     </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件\leetCode_cn</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
