@@ -1,5 +1,6 @@
-#include <stdio.h>
+#include <iostream>
 
-void main() {
-	printf("%d",1/2);
+int main() {
+    std::cout << "Hello!" << std::endl;
+    return 0;
 }

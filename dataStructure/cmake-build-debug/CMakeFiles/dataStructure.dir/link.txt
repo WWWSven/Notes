@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g -Wl,--enable-auto-import CMakeFiles/dataStructure.dir/test.cpp.o -o dataStructure.exe -Wl,--out-implib,libdataStructure.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
