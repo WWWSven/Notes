@@ -95,7 +95,6 @@ int main() {
 		printf("双链表为空表！\n");
 	else
 		printf("双链表不是空表！\n");
-
 	// 插入元素
 	doubleNode* q1 = (doubleNode*)malloc(sizeof(doubleNode));
 	q1->data = 1;
