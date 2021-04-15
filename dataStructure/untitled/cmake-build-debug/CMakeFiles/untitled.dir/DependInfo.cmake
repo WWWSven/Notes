@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Notes/dataStructure/untitled/queue/test01.cpp" "/cygdrive/c/Notes/dataStructure/untitled/cmake-build-debug/CMakeFiles/untitled.dir/queue/test01.cpp.o"
   "/cygdrive/c/Notes/dataStructure/untitled/queue/test02.cpp" "/cygdrive/c/Notes/dataStructure/untitled/cmake-build-debug/CMakeFiles/untitled.dir/queue/test02.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

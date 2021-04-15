@@ -142,33 +142,6 @@ untitled/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
-queue/test01.o: queue/test01.cpp.o
-
-.PHONY : queue/test01.o
-
-# target to build an object file
-queue/test01.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/queue/test01.cpp.o
-.PHONY : queue/test01.cpp.o
-
-queue/test01.i: queue/test01.cpp.i
-
-.PHONY : queue/test01.i
-
-# target to preprocess a source file
-queue/test01.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/queue/test01.cpp.i
-.PHONY : queue/test01.cpp.i
-
-queue/test01.s: queue/test01.cpp.s
-
-.PHONY : queue/test01.s
-
-# target to generate assembly for a file
-queue/test01.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/queue/test01.cpp.s
-.PHONY : queue/test01.cpp.s
-
 queue/test02.o: queue/test02.cpp.o
 
 .PHONY : queue/test02.o
@@ -205,9 +178,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... untitled"
-	@echo "... queue/test01.o"
-	@echo "... queue/test01.i"
-	@echo "... queue/test01.s"
 	@echo "... queue/test02.o"
 	@echo "... queue/test02.i"
 	@echo "... queue/test02.s"

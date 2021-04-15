@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Notes/dataStructure/untitled/queue/test01.cpp">
-			<Option target="untitled"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Notes/dataStructure/untitled/queue/test02.cpp">
 			<Option target="untitled"/>
 		</Unit>

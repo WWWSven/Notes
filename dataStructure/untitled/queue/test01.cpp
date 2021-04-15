@@ -80,9 +80,8 @@ void palindrome(char string[]) {
 }
 
 int main(){
-    char string[] = "ssass@";
-    palindrome(string);
-
+    char string[] = "ssass@";palindrome(string);
+    char string1[] = "sass@";palindrome(string1);
     return 0;
 }
 

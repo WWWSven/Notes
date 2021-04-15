@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/untitled.dir/queue/test01.cpp.o"
   "CMakeFiles/untitled.dir/queue/test02.cpp.o"
   "libuntitled.dll.a"
   "untitled.exe"
