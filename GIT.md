@@ -1,3 +1,8 @@
+- https://learngitbranching.js.org/?demo
+  可视化学习网站
+- https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
+  angular commit 规范（阮一峰）
+
 ### 保持merge的整洁(rebase 的一种用法)
 
 ```shell
