@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>唯品会</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+    }
+    .head, .search, .itemList {
+        width: 1170px;
+        margin: 0 auto;
+    }
+    .head {
+        height: 30px;
+    }
+    .headLeft {
+        float: left;
+    }
+    .headRight {
+        margin-left: 475px;
+    }
+    .headRight li{
+        display: inline;
+    }
+
+    .search {
+        height: 100px;
+    }
+    .search .spirit01,.spirit02,.spirit03 {
+        background: url(./spirit1.png);
+        display: inline-block;
+        height: 100px;
+        width: 100px;
+    }
+    .spirit01 {
+        background-position: 0px 0px;
+    }
+    .spirit02 {
+        background-position: 100px 0px;
+    }
+    .spirit03 {
+        background-position: 200px 0px;
+    }
+    
+    .searchRight {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+    }
+    .searchInput {
+        margin-top: 30px;
+        margin-left: 150px;
+        height: 32px;
+        width: 397px;
+        border-color: #fa2a83;
+        border-style: solid;
+    }
+    .searchInputIconFather {
+        display: inline-block;
+        height: 38px;
+        width: 36px;
+        border-radius: 0px 3px 3px 0px;
+        margin-left: -5px;
+        background-color: #fa2a83;
+        text-align: center;
+        position: relative;
+        top: 6px;
+    }
+    .searchInputIcon {
+        display: inline-block;
+        background: url(./spirit1.png);
+        background-position: -283px -102px;
+        height: 25px;
+        width: 25px;
+        margin-top: 5px;
+    }
+    .shoppingCar {
+        display: inline-block;
+        vertical-align: top;
+        background-color: white;
+        border: solid 1px #cccccc;
+        border-radius: 3px;
+        background-color: #f6f7f9;
+        margin-top: 33px;
+        height: 34px;
+        width: 96px;
+        position: absolute;
+        right: -133px;
+        top: -3px;
+    }
+    .shoppingCarIcon {
+        float: left;
+        background: url(./spirit1.png);
+        background-position: 1px 25000px;
+        height: 29px;
+        width: 15px;
+        position: relative;
+        top: 2px;
+        left: 10px;
+    }
+    .shoppingCarText {
+        float: left;
+        position: relative;
+        top: 9px;
+        left: 9px;
+        font-size: 10px;
+    }
+    .shoppingCarNum {
+        float: left;
+        position: relative;
+        top: 8px;
+        left: 18px;
+        font-size: 13px;
+        background-color: #fa2a83;
+        height: 17px;
+        width: 23px;
+        text-align: center;
+    }
+
+    
+    .itemList {
+        height: 43px;
+        background-color: red;
+    }
+    .bigImg {
+        height: 499px;
+        /* background-color: blueviolet; */
+    }
+</style>
+<body>
+<div class="head">
+    <div class="headLeft">广州市！</div>
+    <div class="headRight">
+        <ul>
+            <li>请登录</li>
+            <li>/注册</li>
+            <li>/签到有礼</li>
+            <li>/我的订单</li>
+            <li>/我的特卖！</li>
+            <li>/会员俱乐部！</li>
+            <li>/客户服务！</li>
+            <li>/手机版</li>
+            <li>/更多！</li>
+        </ul>
+    </div>
+</div>
+<div class="search">
+    <img src="./618.gif" alt="">
+    <div class="spirit01"></div>
+    <div class="spirit02"></div>
+    <div class="spirit03"></div>
+    <div class="searchRight">
+        <input class="searchInput" type="text">
+        <div class="searchInputIconFather">
+            <div class="searchInputIcon"></div>
+        </div>
+        <div class="shoppingCar">
+            <div class="shoppingCarIcon"></div>
+            <div class="shoppingCarText">购物袋</div>
+            <div class="shoppingCarNum">0</div>
+        </div>
+    </div>
+</div>
+<div class="itemList">
+
+</div>
+<div class="bigImg">
+    <!-- <img src="./vip-bigImg.jpg" alt=""> -->
+</div>
+</body>
+</html>

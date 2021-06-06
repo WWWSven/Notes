@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+<h1>CSS 过渡（transition）[#css-transition]</h1>
+<div>
+
+
+<h2>为 backgroud-color 的变化生成一个 3 秒的过渡动画</h2>
+    <button id="color">Click me</button>
+    <style>
+        #color {
+            transition-property: background-color; /*property 属性*/
+            transition-duration: 3s; /*duration 持续时间*/
+        }
+    </style>
+    <script>
+        color.onclick = function() {
+            this.style.backgroundColor = 'red';
+        };
+    </script>
+
+
+<h2>transition 的四个参数</h2>
+<p>
+    transition 中以 property duration timing-function delay 的顺序一次性定义它们，
+    并且可以同时为多个属性设置过渡动画
+</p>
+    <button id="growing">Click me</button>
+    <style>
+        #growing {
+            transition: font-size 3s, color 2s, border 2s, border-radius 3s;
+        }
+    </style>
+    <script>
+        growing.onclick = function() {
+            this.style.fontSize = '36px';
+            this.style.color = 'red';
+            this.style.border = 'solid 1px red';
+            this.style.borderRadius = '20px';
+        };
+    </script>
+
+
+</div>
+</body>
+</html>

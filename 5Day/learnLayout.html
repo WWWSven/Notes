@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            background-color: red;
+            display: inline;
+        }
+        .code {
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div class=":)">
+<!-- https://coolors.co/palettes 在线调色板 -->
+<!-- https://colorhunt.co/palette/272780 在线调色板 -->
+<h2>Notes</h2>
+<ol>
+    <li>
+        标签与标签之间（如两个div）默认有一个换行符，在浏览器会以空格的形式占据空间。
+        使用font-size: 0; 就忽略换行符了。
+    </li>
+</ol>
+
+<h2>布局方式</h2>
+<ol>
+    <li>position</li>
+    <li>float</li>
+    <li>inline-block</li>
+    <li>一系列新的CSS属性，可以帮助你很轻松的实现文字的多列布局</li>
+    <li>flexbox</li>
+</ol>
+
+<h2>css动画</h2>
+<ol>
+    <li>https://zh.javascript.info/css-animations#jie-yue-han-shu-steps</li>
+</ol>
+</div>
+<hr>
+<!-- =============================== display  ====================================== -->
+    <!-- 
+        每个元素都有一个默认的 display 值,这与元素的类型有关。
+        对于大多数元素它们的默认值通常是 block(块级元素) 或 inline(行内元素) 。
+        <script> 默认的是 display:none。
+        none 通常被 JavaScript 用来在不删除元素的情况下隐藏或显示元素。
+        它和 visibility 属性不一样。把 display 设置成 none 元素不会占据它本来应该显示的空间，
+        但是设置成 visibility: hidden; 还会占据空间。
+     -->
+    <div style="background-color: yellow;">
+        <ul>1</ul>
+        <ul>2</ul>
+        <ul>3</ul>
+        <ul>4</ul>
+        <ul>5</ul>
+    </div>
+<!-- =============================== max-width ====================================== --><hr>
+    <div style="max-width: 500px; margin: 0 auto; background-color: rebeccapurple;">
+        <div class="code">
+            width: 500px; margin: 0 auto;
+        </div>
+        - 设置块级元素的 width 可以防止它从左到右撑满整个容器。<br>
+        - 然后你就可以设置左右外边距为 auto 来使其水平居中。<br>
+          元素会占据你所指定的宽度，然后剩余的宽度会一分为二成为左右外边距。<br>
+        - 唯一的问题是，当浏览器窗口比元素的宽度还要窄时，浏览器会显示一个水平滚动条来容纳页面。<br>
+        - 使用max-width代替width, 可以使浏览器更好地处理小窗口的情况。这点在移动设备上显得尤为重要。
+        <div class="code">
+            max-width: 500px; margin: 0 auto;
+        </div>
+    </div>
+<!-- ================================= 盒子模型 ==================================== --><hr>
+    <!-- margin 外边距，padding 内边距，border 边框 -->
+    <style>
+        .simple {
+            width: 500px;
+            margin: 20px auto;
+            background-color: red;
+        }
+        .fancy {
+            width: 500px;
+            margin: 20px auto;
+            border: solid blue 10px;
+            background-color: rgba(255, 0, 0, 0.568);
+        }
+        .simple_useBoxSizing {
+            width: 500px;
+            margin: 20px auto;
+            background-color: red;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .fancy_useBoxSizing {
+            width: 500px;
+            margin: 20px auto;
+            border: solid blue 10px;
+            background-color: rgba(255, 0, 0, 0.568);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+    <div class="simple">
+        当你设置了元素的宽度，实际展现的元素却超出你的设置，<br>
+        看这两个例子，两个相同宽度的元素显示的实际宽度却不一样。
+    </div>
+    <div class="fancy">
+        这是因为元素的边框和内边距会撑开元素。
+    </div>
+    <div class="simple_useBoxSizing">
+        当你设置一个元素为 <div class="code">box-sizing: border-box;</div> 时，
+        此元素的内边距和边框不再会增加它的宽度。
+    </div>
+    <div class="fancy_useBoxSizing">
+        这两个例子跟前两个例子唯一的区别是两个元素都设置了
+        <div class="code">
+            -webkit-box-sizing: border-box; <br>
+            -moz-box-sizing: border-box; <br>
+            box-sizing: border-box; <br>
+        </div>
+        box-sizing 是个很新的属性,使用 -webkit- 和 -moz- 前缀。这可以启用特定浏览器实验中的特性。
+    </div>
+<!-- ================================= position ==================================== --><hr>
+    <!-- https://zh.learnlayout.com/position.html -->
+    <div class="position_static" style="background-color: aqua;">
+        static 是默认值。任意 position: static; 的元素不会被特殊的定位。<br>
+        一个 static 元素表示它不会被“positioned”。<br>
+    </div>
+    <!-- relative 相对的 -->
+    <style>
+        .relative1 {
+            background-color: rgba(57, 189, 189, 0.65);
+            position: relative;
+        }
+        .relative2 {
+            background-color: rgb(120, 131, 221);
+            position: relative;
+            top: 20px;
+            left: 300px;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+    <div class="relative1">
+        relative 表现的和 static 一样，除非你添加了一些额外的属性。
+    </div>
+    <div class="relative2">
+        在一个相对定位（position属性的值为relative）的元素上设置 top 、 right 、 bottom 和 left 属性会使其偏离其正常位置。
+        其他的元素的位置则不会受该元素的影响发生位置改变来弥补它偏离后剩下的空隙。
+    </div>
+    <!-- fixed 固定 -->
+    <div class="fixed" style="position: fixed; bottom: 0; color: red;">
+        fixed 相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。<br>
+        和 relative 一样， top 、 right 、 bottom 和 left 属性都可用。<br>
+        一个固定定位元素不会保留它原本在页面应有的空隙（脱离文档流）。<br>
+        据此教程描述：移动浏览器对 fixed 的支持很差。
+    </div>
+    <style>
+        body { margin-bottom: 100px;} /* 给页面底部留个白 */
+    </style>
+    <!-- absolute 绝对的 -->
+    <style>
+        .relative_father {
+            position: relative;
+            background-color: blueviolet;
+            height: 200px;
+        }
+        .absolute {
+            position: absolute;
+            color: aqua;
+            width: 500px;
+            right: 0px;
+            top: 40px;
+        }
+    </style>
+    <div class="relative_father">
+        这个元素是相对定位的。如果它是 position: static; <br>
+        那么它的绝对定位子元素会跳过它直接相对于body元素定位。
+        <div class="absolute">
+            absolute 是最棘手的position值。 
+            absolute 与 fixed 的表现类似，但是它不是相对于视窗而是相对于最近的“positioned”祖先元素。
+            如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，
+            那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。
+            记住一个“positioned”元素是指 position 值不是 static 的元素。
+        </div>
+    </div>
+    <!-- 
+        具体的例子可以帮助我们更好地理解“position”。
+    -->
+    <iframe src="https://zh.learnlayout.com/position-example.html" frameborder="0"
+            style="width: 100%; height: 500px;">
+        一个真正的页面布局
+    </iframe>
+<!-- ================================= float ==================================== --><hr>
+    <style>
+        .img1 {
+            float: right;
+            margin: 0 0 1em 1em;
+        }
+    </style>
+    <div>
+        <img class="img1" src="https://zh.learnlayout.com/images/ilta.png" alt="">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
+    </div>
+<!-- ================================= clear ==================================== -->
+    <div style="background-color: brown;">此div遵循了img的float: right;</div>
+    <div style="clear: right; background-color: burlywood;">此div清除了img的float: right;</div>
+<!-- ================================= clearfix hack ==================================== --> <hr>
+    <style>
+        .claerfixDiv {
+            background-color: burlywood;
+            overflow: auto; /* 清除浮动黑魔法 */
+            /* 清除浮动水很深 http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best*/
+            zoom: 1; /* 使魔法支持ie9 */
+        }
+        .img2 {
+            float: right;
+        }
+    </style>
+    <div class="claerfixDiv">
+        <img class="img2" src="https://zh.learnlayout.com/images/ilta.png" alt="">
+        这个图片比包含它的元素还高， 而且它是浮动的，于是它就溢出到了容器外面！
+        用黑魔法<div class="code">overflow: auto; </div>
+    </div>
+<!-- 一个真正的float布局 -->
+    <iframe src="https://zh.learnlayout.com/float-layout.html" frameborder="0"
+            style="width: 100%; height: 500px;">
+        一个真正的float布局
+    </iframe>
+<!-- ================================= 媒体查询 ==================================== --> <hr>
+<!-- nav section artice 是H5内容分区标签 -->
+<!-- html元素参考 https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element -->
+<!-- 使用了媒体查询的站 https://mediaqueri.es/ -->
+<style>
+.container_responsiveDesign *{
+    border: dotted red 1px;
+}
+@media (min-width: 600px) {
+    .nav_responsiveDesign {
+        float: left;
+        width: 25%;
+    }
+    section {
+        margin-left: 25%;
+    }
+}
+@media (max-width: 599px) {
+    .nav_responsiveDesign li {
+        display: inline;
+    }
+}
+</style>
+<div class="container_responsiveDesign">
+    <div class="nav_responsiveDesign">
+        <ol>
+        <li>Home</li>
+        <li>Taco Menu</li>
+        <li>Draft List</li>
+        <li>Hours</li>
+        <li>Directions</li>
+        <li>Contact</li>
+        </ol>
+    </div>
+    <div class="section_responsiveDesign">
+        “响应式设计(Responsive Design)” 是一种让网站针对不同的浏览器和设备“呈现”不同显示效果的策略，这样可以让网站在任何情况下显示的很棒！
+    </div>
+    <div class="section_responsiveDesign">
+        媒体查询是做此事所需的最强大的工具。我们使用百分比宽度来布局，然后在浏览器变窄到无法容纳侧边栏中的菜单时，把布局显示成一列
+    </div>
+</div>
+<!-- ================================= inline-block ==================================== -->
+<hr style="clear: left;">
+<style>
+    .box {
+        float: left;
+        width: 200px;
+        height: 100px;
+        border: solid rosybrown 3px;
+        margin: 1em;
+    }
+    .after-box {
+        border: solid rosybrown 3px;
+        margin: 1em;
+        clear: left;
+    }
+</style>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="box">创建很多网格使用float来铺满浏览器</div>
+<div class="after-box">我在使用 clear，所以我不会浮动到上面那堆盒子的旁边。</div>
+<p> 容易的方式（使用 inline-block）
+    你可以用 display 属性的值 inline-block 来实现相同效果。</p>
+<style>
+    .box2 {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        margin: 1em;
+        border: solid rebeccapurple 3px;
+    }
+</style>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div class="box2">我是一个行内块！</div>
+<div style="border: solid rebeccapurple 3px;margin: 1em;">这次我可没有用 clear 。太棒了！</div>
+<p>使用 inline-block 布局 </p>
+<iframe src="https://zh.learnlayout.com/inline-block-layout.html" frameborder="0"
+style="width: 100%; height: 500px;">
+一个真正的inline-block布局
+</iframe>
+<!-- ================================= 多列布局的新属性 ==================================== --> <hr>
+<p>一系列新的CSS属性，可以帮助你很轻松的实现文字的多列布局</p>
+<style>
+    .three-column {
+        /* padding: 1em;
+        -moz-column-count: 3;
+        -moz-column-gap: 1em;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 1em; */
+        column-count: 3; /* ! */
+        column-gap: 1em; /* ! */
+    }
+</style>
+<div class="three-column">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis d
+</div>
+<!-- ================================= flexBox 弹性盒子 ==================================== --> <hr>
+<style>
+    .container {
+        background-color: aqua;
+        /* display: -webkit-flex; */
+        display: flex;
+    }
+    .container > *{
+        border: solid red 3px;
+    }
+</style>
+<p>使用flexbox的 *简单* 布局</p>
+<style>
+    .my-nav {
+        width: 200px;
+    }
+    .flex-column {
+        /* -webkit-flex: 1; */
+        flex: 1;
+    }
+</style>
+<div class="container">
+    <div class="my-nav">
+        <ol>
+        <li>Home</li>
+        <li>Taco Menu</li>
+        <li>Draft List</li>
+        <li>Hours</li>
+        <li>Directions</li>
+        <li>Contact</li>
+        </ol>
+    </div>
+    <div class="flex-column">
+        <div class="my-section">
+            Flexbox好容易使用！
+        </div>
+        <div class="my-section">
+            使用flexbox你还可以做的更多；这里只是一些让你了解概念的例子!
+        </div>
+    </div>
+</div>
+<p>使用flexbox的 *牛逼* 布局</p>
+<style>
+    .initial {
+        flex: initial;
+        width: 200px;
+        min-width: 100px;
+    }
+    .none {
+        flex: none;
+        width: 200px;
+    }
+    .flex1 {
+        flex: 1;
+    }
+    .flex2 {
+        flex: 2;
+    }
+</style>
+<div class="container">
+    <div class="initial">空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。</div>
+    <div class="none">无论窗口如何变化，我的宽度一直是200px。</div>
+    <div class="flex1">余宽度的1/3。</div>
+    <div class="flex2">我会占满剩余宽度的2/3。</div>
+</div>
+<p>使用flexbox的 *居中* 布局</p>
+<style>
+    .vertical-container {
+        background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%); /* https://webgradients.com/ */
+        height: 300px;
+        display: flex;
+        align-items: center;  /* 沿竖轴对齐 */
+        justify-content: center; /* 沿横轴对齐 */
+    }
+</style>
+<div class="vertical-container">
+    CSS里总算是有了一种简单的垂直居中布局的方法了！
+</div>
+
+<!-- END --> <hr>
+
+</body>
+</html>
