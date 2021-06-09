@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav {
+            width: 100%;
+            height: 60px;
+            /* border: solid 1px red; */
+            position: relative;
+        }
+
+        .nav_right {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .nav_left>a,
+        .nav_right>a,
+        .nav_more {
+            /* 行内元素不能设置上下的外边距，改为行内块就可以了 */
+            display: inline-block;
+            margin: 20px 15px;
+            font-size: 13px;
+        }
+
+        .nav .nav_login {
+            background-color: #4e6ef2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin: 5px 15px;
+        }
+
+        .nav a:hover {
+            color: #4e6ef2;
+        }
+
+        .nav .nav_login:hover {
+            color: white;
+            background-color: darkblue;
+        }
+
+        .pop_view {
+            width: 306px;
+            height: 224px;
+            /* border: solid 1px red; */
+            position: absolute;
+            top: 45px;
+            left: 180px;
+            /* opacity: 0; */
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+            padding: 10px 0 0 15px;
+            text-align: center;
+        }
+
+        .nav_more:hover .pop_view {
+            display: block;
+        }
+
+        .pop_view>a {
+            display: inline-block;
+            width: 50px;
+            height: 70px;
+            /* border: solid 1px red; */
+            margin: 10px 10px 5px;
+        }
+
+        .pop_view img {
+            width: 44px;
+            border: solid 1px lightgray;
+            border-radius: 10px;
+        }
+
+        .nav_more {
+            padding-bottom: 20px;
+        }
+
+        .pop_view>p {
+            margin-top: 15px;
+
+        }
+
+        .pop_view .all {
+            color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav_left">
+            <a href="">新闻</a>
+            <a href="">hao123</a>
+            <a href="">地图</a>
+            <a href="">直播</a>
+            <a href="">视频</a>
+            <a href="">贴吧</a>
+            <a href="">学术</a>
+            <!-- a标签中不能包含a标签，p标签中也不能包含p标签 -->
+            <div class="nav_more">
+                <a href="">更多</a>
+                <div class="pop_view">
+                    <a href="">
+                        <img src="images/1.png" alt="">
+                        <p>网盘</p>
+                    </a>
+                    <a href="">
+                        <img src="images/2.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <a href="">
+                        <img src="images/1.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <a href="">
+                        <img src="images/2.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <a href="">
+                        <img src="images/1.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <a href="">
+                        <img src="images/2.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <a href="">
+                        <img src="images/1.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <a href="">
+                        <img src="images/2.png" alt="">
+                        <p>知道</p>
+                    </a>
+                    <p><a href="" class="all">查看全部百度产品></a></p>
+                </div>
+            </div>
+        </div>
+        <div class="nav_right">
+            <a href="">设置</a>
+            <a href="" class="nav_login">登录</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -43,7 +43,176 @@
         };
     </script>
 
+<h2>transition-delay</h2>
+<style>
+    #digit {
+        width: .5em;
+        overflow: hidden;
+        font: 32px monospace;
+        cursor: pointer;
+    }
 
+    #stripe {
+        display: inline-block
+    }
+
+    #stripe.animate {
+        transform: translate(-90%);
+        transition-property: transform;
+        transition-duration: 9s;
+        transition-timing-function: linear;
+    }
+</style>
+<div id="digit"><div id="stripe">0123456789</div></div>
+<script>
+    stripe.onclick = function() {
+        stripe.classList.add('animate');
+    };
+</script>
+<style>
+    #foo {
+        width: 9px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    #bar {
+        display: inline-block;
+    }
+    .anime {
+        transform: translate(-90%);
+        transition-property: transform;
+        transition-duration: 9s;
+        /* transition-timing-function: cubic-bezier(0, -1, 2, 1); */
+        transition-timing-function: steps(9, start);
+        /* transition-timing-function: ease-in; */
+    }
+</style>
+<div id="foo">
+    <div id="bar">0123456789</div>
 </div>
+<script>
+    bar.onclick = ()=>{
+        let sec = new Date().getSeconds()%10;
+        // bar.style.transitionDelay = '-'+sec+'s';
+        bar.classList.add('anime');
+    }
+</script>
+</div>
+<hr>
+<div class="progress"></div>
+
+<style>
+  @keyframes go-left-right {        /* 指定一个名字："go-left-right" */
+    from { left: calc(100% - 50px); }             /* 从 left: 0px 开始 */
+    to { left:  10px; } /* 移动至 left: 100%-50px */
+  }
+
+  .progress {
+    animation: go-left-right 3s infinite alternate;
+    /* 把动画 "go-left-right" 应用到元素上
+       持续 3 秒
+       持续次数：infinite
+       每次都改变方向
+    */
+
+    position: relative;
+    border: 2px solid green;
+    width: 50px;
+    height: 20px;
+    background: lime;
+  }
+</style>
+<!--  -->
+<style>
+    #img {
+        width: 40px;
+        height: 24px;
+        cursor: pointer;
+        transition-property: all;
+        transition-duration: 3s;
+        transition-timing-function: cubic-bezier(0.5, 1.5, 0.7, 2);
+    }
+    /* #img.growing {
+        width: 40px;
+        height: 24px;
+    } */
+</style>
+<img id="img" src="./flyjet.jpg" alt="">
+<script>
+    img.onclick = ()=>{
+        // img.classList.add('growing');
+        img.style.width = '400px';
+        img.style.height = '240px';
+        img.addEventListener('transitionend', ()=>{
+            alert('sdf');
+        });
+    }
+</script>
+
+<style>
+    .f {
+        transition-property: all;
+        transition-duration: 3s;
+        border: solid 1px red;
+        border-radius: 50%;
+        position: absolute;
+    }
+    .message-ball {
+        font-size: 20px;
+        text-align: center;
+        line-height: 200px;
+        color: rgb(255, 0, 0);
+    }
+</style>
+<div onclick="showCircle(1500,150,100, div=>{
+                div.classList.add('message-ball');
+                div.append('hello world');
+            })">click</div>
+<script>
+    function showCircle(cx, cy, radius, callback){
+        let div = document.createElement('div');
+        div.style.height = '0px';
+        div.style.width = '0px';
+        div.classList.add('f');
+        div.style.top = cx - radius + 'ps';
+        div.style.left = cy - radius + 'ps';
+        document.body.append(div);
+        setTimeout(()=>{
+            div.style.height = radius*2+'px';
+            div.style.width = radius*2+'px';
+
+            div.addEventListener('transitionend',function handler(){
+                div.removeEventListener('transitionend', handler);
+                callback(div);
+            });
+        }, 0);
+    }
+</script>
+
+<!-- 回调 -->
+<script>
+    // function loadScript(src, callback) {
+    //     let sc = document.createElement('script');
+    //     sc.src = src;
+
+    //     sc.onload = ()=>{
+    //         callback(null, src);
+    //     };
+    //     sc.onerror = ()=>{
+    //         callback(new Error(sc.src));
+    //     };
+
+    //     document.head.append(sc);
+    // }
+    // loadScript('./src.js', (error, sc)=>{
+    //     if(error)
+    //         alert(error);
+    //     else
+    //         alert('no error!'+sc);
+    // });
+    // alert('html');
+</script>
+
+
 </body>
 </html>

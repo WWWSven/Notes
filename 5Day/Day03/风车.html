@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{ margin: 0px; }
+        .caodi {
+            width: 1920px;
+            position: absolute;
+            bottom: 0px;
+        }
+        .fengche1 {
+            width: 400px;
+            position: absolute;
+            bottom: 210px;
+            left: 450px;
+        }
+        .fengche2 {
+            width: 200px;
+            position: absolute;
+            bottom: 110px;
+            left: 882px;
+        }
+        .fengche3 {
+            width: 300px;
+            position: absolute;
+            bottom: 140px;
+            left: 1110px;
+        }
+        @keyframes run {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .fengche {
+            animation: run 1s infinite linear;
+        }
+        .fengche:hover {
+            animation: run 400ms infinite linear;
+        }
+        .fengche:active {
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <img class="caodi" src="./风车图片/caodi.png" alt="">
+    <img class="fengche fengche1" src="./风车图片/fengche.png" alt="">
+    <img class="fengche fengche2" src="./风车图片/fengche.png" alt="">
+    <img class="fengche fengche3" src="./风车图片/fengche.png" alt="">
+</body>
+</html>

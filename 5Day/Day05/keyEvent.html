@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./animate.min.css">
+    <title>Document</title>
+    <style>
+        *{ margin: 0px; }
+        body,html {
+            height: 100%;
+        }
+        #str {
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            background-color: gray;
+            font-size: 200px;
+        }
+        #score {
+            position: absolute;
+            bottom: 20%;
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="str" draggable="true" class="animate__animated"></div>
+    <div id="score"></div>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min); 
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+        }
+        let code = [];
+        let nowCode = '';
+        for(let i=0; i<26; i++){ //'A' 65
+            code[i] = String.fromCharCode(65+i);
+        }
+        for(let i=26; i<52; i++){ //'a' 97
+            code[i] = String.fromCharCode(97-26+i);
+        }
+        nowCode = code[getRandomIntInclusive(0,51)];
+        str.innerText = nowCode;
+        str.onclick = ()=>{
+            nowCode = code[getRandomIntInclusive(0,51)];
+            str.innerText = nowCode;
+        }
+        let rightNumber = 0;
+        let filedNumber = 0;
+        let scoreStr = '对了'+ rightNumber +'个，错了'+ filedNumber +'个';
+        score.innerText = scoreStr;
+        document.addEventListener('keydown', function(event) {
+            for(let foo of code){
+                if(foo == event.key && nowCode == event.key){
+                    str.classList.add('animate__fadeOutRightBig');
+                    setTimeout(() => {
+                        str.classList.remove('animate__fadeOutRightBig');
+                    }, 500);
+                    scoreStr = '对了'+ (++rightNumber) +'个，错了'+ filedNumber +'个';
+                    nowCode = code[getRandomIntInclusive(0,51)];
+                    str.innerText = nowCode;
+                }else if(foo == event.key){
+                    scoreStr = '对了'+ rightNumber +'个，错了'+ (++filedNumber) +'个';
+                    str.classList.add('animate__bounce');
+                    str.style.color = 'red';
+                    setTimeout(() => {
+                        str.classList.remove('animate__bounce');
+                        str.style.color = 'black';
+                    }, 500);
+                }
+            }
+            score.innerText = scoreStr;
+        });
+    </script>
+</body>
+</html>

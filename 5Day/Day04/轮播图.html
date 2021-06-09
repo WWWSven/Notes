@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img {
+            width: 1226px;
+            height: 460px;
+            background-image: url(./轮播.webp);
+            background-size: contain; /* ! */
+            margin: 200px auto;
+            animation-name: banner ;
+            animation-duration: 6s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes banner {
+            0%,32%{ background-image: url(./轮播.webp); }
+            33%,70%{ background-image: url(./轮播2.webp); }
+            71%,100%{ background-image: url(./轮播3.webp); }
+        }
+    </style>
+</head>
+<body>
+    <div class="img"></div>
+</body>
+</html>

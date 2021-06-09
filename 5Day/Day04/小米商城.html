@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米商城</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .head {
+            height: 40px;
+            background-color: #333333;
+        }
+        .nav {
+            width: 1226px;
+            height: 460px;
+        }
+        .search-bar {
+            width: 100%;
+            height: 100px;
+            background-color: white;
+            position: relative;
+        }
+        .search-bar-main {
+            width: 1226px;
+            height: 100px;
+            background-color: white;
+            margin: 0 auto;
+            padding-top: 20px;
+            box-sizing: border-box; /*!*/
+        }
+        .logo img{
+            width: 56px;
+            height: 56px;
+        }
+        .search-bar-main-right {
+            float: right;
+            width: 300px;
+            height: 50px;
+            border: solid 1px #e0e0e0;
+        }
+        .search-bar-main-right-input {
+            float: right;
+            width: 245px;
+            height: 50px;
+            border: none;
+            padding: 0px;
+        }
+        .search-bar-main-right-icon {
+            float: right;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px; /* ! */
+            border-left: solid 1px #e0e0e0;
+        }
+        .search-bar-main-right-icon:hover {
+            background-color: #ff6700;
+            color: white;
+        }
+        .search-bar-main-category {
+            float: right;
+            line-height: 50px;
+            margin-right: 40px;
+        }
+        .search-bar-main-category > div {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .category-pop1 {
+            width: 100%;
+            height: 230px;
+            position: absolute;
+            left: 0px;
+            top: -130px;
+            z-index: -100;
+            transition: all 0.7s ease-in 0s;
+            border: solid 1px white;
+        }
+        .category1:hover + .category-pop1 {
+            top: 100px;
+            box-shadow: 0 10px 10px grey;
+        }
+        .category-pop1:hover {
+            top: 100px;
+            box-shadow: 0 10px 10px grey;
+        }
+        .category1 {
+            width: 64px;
+            height: 24px;
+            padding: 26px 20px 50px;
+        }
+        .category1:hover {
+            color: #ff6700;
+        }
+        .pop-view-center {
+            width: 1226px;
+            margin: 0 auto;
+            background-color: red;
+            padding-top: 30px;
+        }
+        .pop-view-center>a {
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .pop-view-center p {
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head"></div>
+    <div class="search-bar">
+        <div class="search-bar-main">
+            <a class="logo" href=""><img src="./logo-mi2.png" alt=""></a>
+            <div class="search-bar-main-right">
+                <div class="search-bar-main-right-icon">搜索</div>
+                <input class="search-bar-main-right-input" type="text" placeholder="小米空调">
+            </div>
+            <div class="search-bar-main-category">
+                <div>
+                    <a class="category1" href="">小米手机</a>
+                    <div class="category-pop1" >
+                        <div class="pop-view-center">
+                            <a href="">
+                                <img src="./手机.webp" alt="">
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </a>
+                            <a href="">
+                                <img src="./手机.webp" alt="">
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </a>   
+                            <a href="">
+                                <img src="./手机.webp" alt="">
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </a>   
+                            <a href="">
+                                <img src="./手机.webp" alt="">
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </a>   
+                            <a href="">
+                                <img src="./手机.webp" alt="">
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </a>   
+                            <a href="">
+                                <img src="./手机.webp" alt="">
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="">Redmi 红米</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">电视</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">笔记本</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">家电</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">路由器</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">智能硬件</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">服务</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+                <div>
+                    <a href="">社区</a>
+                    <!-- <div>弹出框</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

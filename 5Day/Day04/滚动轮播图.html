@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0px; }
+        .outer {
+            width: 603px;
+            height: 230px;
+            border: solid 1px red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .outer img {
+            width: 603px;
+            height: 230px;
+        }
+        .inner {
+            width: 1809px;
+            font-size: 0px;
+            animation-name: banner;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes banner {
+            0%,22%{ margin-left: 0px; }
+            27%,75%{ margin-left: -603px;}
+            80%,100%{ margin-left: -1206px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <img src="./轮播.webp" alt="">
+            <img src="./轮播2.webp" alt="">
+            <img src="./轮播3.webp" alt="">
+        </div>
+    </div>
+</body>
+</html>

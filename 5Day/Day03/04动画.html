@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: red;
+            /* 动画名称 */
+            animation-name: run;
+            /* 动画执行一次的时间 */
+            animation-duration: 1s;
+            /* 动画执行次数  infinite无限次 */
+            animation-iteration-count: infinite;
+            /* 匀速 */
+            animation-timing-function: ease-in;
+            /* 是否交替执行 */
+            animation-direction: alternate;
+        }
+
+        /* 关键帧动画 */
+        @keyframes run {
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(360deg);
+                width: 300px;
+                height: 300px;
+                background-color: yellow;
+                border-radius: 50%;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

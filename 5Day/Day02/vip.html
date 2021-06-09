@@ -10,6 +10,10 @@
     *{
         margin: 0px;
     }
+    a {
+        text-decoration: none;
+        color: black;
+    }
     .head, .search, .itemList {
         width: 1170px;
         margin: 0 auto;
@@ -25,6 +29,9 @@
     }
     .headRight li{
         display: inline;
+    }
+    .headerFather {
+        background-color: #f5f5f5;
     }
 
     .search {
@@ -58,6 +65,10 @@
         width: 397px;
         border-color: #fa2a83;
         border-style: solid;
+    }
+    .searchInput:focus {
+        border-color: #fa2a83;
+        outline: none;
     }
     .searchInputIconFather {
         display: inline-block;
@@ -106,7 +117,7 @@
         float: left;
         position: relative;
         top: 9px;
-        left: 9px;
+        left: 14px;
         font-size: 10px;
     }
     .shoppingCarNum {
@@ -119,33 +130,68 @@
         height: 17px;
         width: 23px;
         text-align: center;
+        border-radius: 8px;
+        color: white;
     }
 
-    
     .itemList {
         height: 43px;
-        background-color: red;
     }
+    .itemList li{
+        display: inline-block;
+    }
+    .itemList li:first-child {
+        margin-left: 37px;
+        margin-top: 11px;
+    }
+    .itemListSecond {
+        display: inline-block;
+        margin-left: -3px;
+    }
+    .itemListSecond li {
+        margin-right: 26px;
+    }
+    .itemListSecond li:first-child {
+        color: #f10180;
+        font-size: 19px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .itemListFirst {
+        display: inline-block;
+        background-color: #f10180;
+        width: 156px;
+        height: 43px;
+    }
+    .itemListFirst>li {
+        color: white;
+        position: relative;
+        left: 10px;
+    }
+
     .bigImg {
         height: 499px;
         /* background-color: blueviolet; */
     }
 </style>
 <body>
-<div class="head">
-    <div class="headLeft">广州市！</div>
-    <div class="headRight">
-        <ul>
-            <li>请登录</li>
-            <li>/注册</li>
-            <li>/签到有礼</li>
-            <li>/我的订单</li>
-            <li>/我的特卖！</li>
-            <li>/会员俱乐部！</li>
-            <li>/客户服务！</li>
-            <li>/手机版</li>
-            <li>/更多！</li>
-        </ul>
+<div class="headerFather">
+    <div class="head">
+        <div class="headLeft">广州市！</div>
+        <div class="headRight">
+            <a href="">
+                <ul>
+                    <li>请登录</li>
+                    <li>/注册</li>
+                    <li>/签到有礼</li>
+                    <li>/我的订单</li>
+                    <li>/我的特卖！</li>
+                    <li>/会员俱乐部！</li>
+                    <li>/客户服务！</li>
+                    <li>/手机版</li>
+                    <li>/更多！</li>
+                </ul>
+            </a>
+        </div>
     </div>
 </div>
 <div class="search">
@@ -156,20 +202,40 @@
     <div class="searchRight">
         <input class="searchInput" type="text">
         <div class="searchInputIconFather">
-            <div class="searchInputIcon"></div>
+            <a class="searchInputIcon" href=""></a>
         </div>
         <div class="shoppingCar">
-            <div class="shoppingCarIcon"></div>
-            <div class="shoppingCarText">购物袋</div>
-            <div class="shoppingCarNum">0</div>
+            <a class="shoppingCarIcon" href=""></a>
+            <a class="shoppingCarText" href="">购物袋</a>
+            <a class="shoppingCarNum" href="">0</a>
         </div>
     </div>
 </div>
 <div class="itemList">
-
+    <a href="">
+        <ul>
+            <div class="itemListFirst">
+                <li>商品分类</li>
+            </div>
+            <div class="itemListSecond">
+                <li>6·16</li>
+                <li>3折疯抢</li>
+                <li>唯品快抢</li>
+                <li>唯品奥莱</li>
+                <li>品牌清仓</li>
+                <li>女装</li>
+                <li>鞋包</li>
+                <li>运动</li>
+                <li>美妆</li>
+                <li>母婴</li>
+                <li>电器</li>
+                <li>更多!</li>
+            </div>
+        </ul>
+    </a>
 </div>
 <div class="bigImg">
-    <!-- <img src="./vip-bigImg.jpg" alt=""> -->
+    <img src="./vip-bigImg.jpg" alt="">
 </div>
 </body>
 </html>

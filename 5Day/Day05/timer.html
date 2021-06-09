@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        html,body {
+            height: 100%;
+        }
+        .timer {
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            background-color: grey;
+        }
+        #timeDiv {
+            font-size: 100px;
+            color: aquamarine;
+        }
+        #dateDiv {
+            font-size: 30px;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <div id="timeDiv" draggable="true">
+            20:00:00
+        </div> 
+        <br>
+        <div id="dateDiv" draggable="true">
+            2021年8月8日 星期一
+        </div>
+    </div>
+
+    <script>
+        update();
+        function update() {
+            let date = new Date();
+            // date.setFullYear(2021,5,6);
+            // date.setHours(1,1,1);
+            let timeStr = (date.getHours()<10 ? '0'+date.getHours() : date.getHours()) + ':' + 
+                          (date.getMinutes()<10 ? '0'+date.getMinutes() : date.getMinutes()) + ':' + 
+                          (date.getSeconds()<10 ? '0'+date.getSeconds() : date.getSeconds());
+            let dateStr = date.getFullYear() + '年' + (date.getMonth()+1) + '月' + 
+                          date.getDate() + '日  星期' + (date.getDay()===0 ? 7 : date.getDay());
+            timeDiv.innerText = timeStr;
+            dateDiv.innerText = dateStr; 
+        }
+        setInterval(update, 1*1000);
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min); 
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+        }
+        timeDiv.onclick = ()=>{
+            timeDiv.style.color = 'rgb('+ getRandomIntInclusive(0,255) +','+ 
+                                          getRandomIntInclusive(0,255) +','+
+                                          getRandomIntInclusive(0,255) +')';
+        }
+        dateDiv.onclick = ()=>{
+            dateDiv.style.color = 'rgb('+ getRandomIntInclusive(0,255) +','+ 
+                                          getRandomIntInclusive(0,255) +','+
+                                          getRandomIntInclusive(0,255) +')';
+        }
+</script>
+</body>
+</html>

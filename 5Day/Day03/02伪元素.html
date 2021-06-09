@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 400px;
+            height: 30px;
+            border: solid 1px red;
+        }
+        /* 给标签添加前缀和后缀 */
+        /* 默认时一个行内元素 */
+        p::before{
+            content: '我是前缀';
+            border: solid 1px blue;
+            display: inline-block;
+            width: 100px;
+        }
+        p::after{
+            content: '我是后缀';
+            border: solid 1px blue;
+            margin-left: 100px;
+        }
+
+        div{
+            width: 200px;
+            height: 200px;
+            border: solid 1px black;
+        }
+
+        div::first-line{
+            color: red;
+        }
+        div::first-letter{
+            font-size: 30px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <p>这是p标签的内容</p>
+    <div>这是一个div标签这是一个div标签这是一个div标签这是一个div标签这是一个div标签这是一个div标签这是一个div标签这是一个div标签这是一个div标签</div>
+</body>
+</html>

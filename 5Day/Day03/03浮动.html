@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .nav{
+            background-color: red;
+            width: 100%;
+            /* 问题：如何解决子元素全部浮动后，父元素没有高度的问题？ */
+            /* 方法1：手动给父元素设置高度 */
+            /* height: 40px; */
+
+            /* 原本的作用时将超出标签自身大小之外的内容隐藏 */
+            /* 方法2： */
+            /* overflow: hidden; */
+        }
+        .nav_left{
+            float: left;
+            background-color: skyblue;
+        }
+        .nav_center{
+            float: right;
+            background-color: pink;
+            margin-right: 100px;
+        }
+        .nav_right{
+            float: right;
+            background-color: green;
+        }
+        
+        /* .clear{ */
+            /* 清除自身左侧和右侧的浮动元素所产生的影响 */
+            /* clear: both; */
+        /* } */
+
+        /* 方法4：使用伪元素 */
+        .clearfix::after{
+            content: '';
+            display: block;
+            height: 0;
+            clear: both;
+        }   
+/* ----------------------------------------------------- */
+
+        /* 使用浮动来做商品列表 */
+        .product_list{
+            width: 500px;
+            /* height: 300px; */
+            border: solid 1px red;
+        }
+        .product{
+            border: solid 1px blue;
+            float: left;
+            margin: 20px 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="nav clearfix">
+        <div class="nav_left">左侧导航项</div>
+        <!-- 两个标签同时设置往右浮动，html层面先写的标签先靠右，后写的标签后靠右，跟样式的顺序没有关系-->
+        <!-- 标签设置过浮动之后，会尽可能的少占用空间，变成一个行内块元素了 -->
+        <!-- 浮动会导致标签脱离文档流，如果一个标签内的元素都设置了浮动，就没有内容可以撑起父元素的高度，父元素的高度就为0 -->
+        <div class="nav_right">购物车</div>
+        <div class="nav_center">登录注册的导航项</div>
+        <!-- 方法3：额外标签法 -->
+        <!-- <div class="clear"></div> -->
+    </div>
+    <div>我是导航条下面的内容</div>
+
+    <!-- --------------------------------------------- -->
+    <div class="product_list clearfix">
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+        <div class="product">我是一个商品</div>
+    </div>
+
+</body>
+</html>
