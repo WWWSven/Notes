@@ -58,7 +58,27 @@
     export {}
     ```
 
+- 类型
 
+  - object: 泛指所有非原始类型（{} [] function / 对象 数组 函数）
+
+  - 单纯的对象类型
+
+    ```typescript
+    const obj01: { foo: number, bar: string } = { foo: 123, bar: 'string...'}
+    ```
+
+  - 数组
+
+    ```typescript
+    const arr1: Array<number> = [1,2,3]
+    const arr2: number[] = [1,2,3]
+    function sum(...args: number[]){
+        return args.reduce((prev, current)=>prev+current, 0)
+    }
+    ```
+
+    
 
 -----------
 
