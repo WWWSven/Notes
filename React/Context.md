@@ -15,3 +15,42 @@ Context都传递下去的问题
 ~~~
 
 ![image-20220305160054612](../.image/image-20220305160054612.png)
+
+# 使用context
+
+~~~react
+import {createContext, useState} from "react";
+import Child1 from "./Child1";
+// 调用reactAPI创建context
+let Context = createContext(1);
+function App(){
+    // 调用useState创建状态
+    let [v, setV] = useState(2);
+    return(
+        // 使用Provider，赋值value
+        <Context.Provider value={v}>
+            <button onClick={()=>{
+                setV(v+1); // 改变状态
+            }}>this is app</button>
+            
+            <Child1 con={Context}/> {/*传递context*/}
+        </Context.Provider>
+    );
+}
+export default App;
+~~~
+
+~~~react
+import {useContext} from "react";
+
+export default function Child1({con}){
+    return <Child2 con={con}/>;
+}
+
+function Child2({con}){
+    let context = useContext(con);
+    let button = <button>{context}</button>;
+    return button;
+}
+~~~
+
