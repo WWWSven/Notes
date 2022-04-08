@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/functionProgram/functionProgram.iml" filepath="$PROJECT_DIR$/functionProgram/functionProgram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/innerClass/innerClass.iml" filepath="$PROJECT_DIR$/innerClass/innerClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdkLearning/jdkLearning.iml" filepath="$PROJECT_DIR$/jdkLearning/jdkLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mixed.iml" filepath="$PROJECT_DIR$/mixed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reflect/reflect.iml" filepath="$PROJECT_DIR$/reflect/reflect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stream/stream.iml" filepath="$PROJECT_DIR$/stream/stream.iml" />
+    </modules>
+  </component>
+</project>

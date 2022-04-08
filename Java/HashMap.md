@@ -8,7 +8,7 @@
   Hashmap 不是同步的，如果多个线程同时访问一个 HashMap，而其中至少一个线程从结构上（指添加或者删除一个或多个映射关系的任何操作）修改了，则必须保持外部同步，以防止对映射进行意外的非同步访问。
   - 同步：A执行一个操作，A等待操作返回执行结果，获得操作返回的结果，继续下一个操作
   - 非同步：A执行一个操作，A不等待操作返回结果，A直接执行下一个操作，操作使用回调函数返回结果。
-- 不保证有序，不是不保证无序
+- 不保证有序，不是保证无序
 - 它是顺序存储结构+链式存储结构
 
 ## 1：ADT
@@ -83,6 +83,27 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
   | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
   - 2的倍数的特性就出现了
+  
+    ```java
+    // 测试用的代码
+    public class Main {
+        public static void main(String[] args) {
+            // i = (n - 1) & hash
+            int index = 0;
+            for (int i = 0; i < 10; i++) {
+                index = (16-1)&hash(i);
+                String left = Integer.toBinaryString(16 - 1);
+                String right = Integer.toBinaryString(hash(i));
+                String indexB = Integer.toBinaryString(index);
+                System.out.printf("(%d-%d)&hash(%d)=%d \t %s&%s=%s \n",16,1,i,index, left,right,indexB);
+            }
+        }
+        static final int hash(Object key) {
+            int h;
+            return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+        }
+    }
+    ```
 
 
 ### hash算法
