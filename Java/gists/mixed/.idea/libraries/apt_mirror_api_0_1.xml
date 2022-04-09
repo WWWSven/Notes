@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="apt-mirror-api-0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/TIJ4/apt-mirror-api-0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

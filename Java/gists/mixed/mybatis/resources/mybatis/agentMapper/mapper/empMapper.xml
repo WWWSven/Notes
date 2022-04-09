@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.agentMapper.mapper.empMapper">
+    <sql id="columns">
+        empno, ename, job, mgr, hiredate, sal, comm, deptno as deptNumber
+    </sql>
+    <resultMap id="columnMap" type="emp">
+        <id property="id" column="empno" /> <!--主键?-->
+        <result property="name" column="ename"/>
+    </resultMap>
+<!--    <select id="selectAll" resultType="emp" >-->
+    <select id="selectAll" resultMap="columnMap">
+<!-- 有resultMap就不用resultType了，因为在resultMap中有type -->
+        select
+            <include refid="columns"></include>
+        from emp;
+    </select>
+    <select id="selectOneById" resultMap="columnMap">
+        select
+            <include refid="columns"/>
+        from emp where
+            empno = #{id};
+    </select>
+    <select id="selectOneByJobAndSal" resultMap="columnMap">
+        select <include refid="columns"/>
+        from emp where job=#{job} and sal>#{sal}
+    </select>
+<!--    -->
+    <select id="selectByParam" resultMap="columnMap">
+        select <include refid="columns"/>
+        from emp
+        <where>
+            <if test="id!=null"> empno=#{id} </if>
+            <if test="name!=null and name!=''"> and ename like #{name} </if>
+            <if test="sal!=null and sal!=''"> and sal=#{sal} </if>
+        </where>
+    </select>
+    <select id="selectOneByEmpFooObj" resultMap="columnMap">
+        select <include refid="columns"/>
+        from emp
+        <where>
+            <choose>
+                <when test="id!=null">empno=#{id}</when>
+                <when test="name!=null and name!=''">ename=#{name}</when>
+                <when test="job!=null and job!=''">job=#{job}</when>
+                <otherwise>
+                    empno=7935
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <update id="updateById" useGeneratedKeys="true" keyProperty="id">
+        update emp
+        set ename=#{name},job=#{job} where empno=#{id};
+    </update>
+
+    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id">
+        insert into emp (ename, job)
+        values (#{name},#{job})
+    </insert>
+    <insert id="insertList">
+        <!-- https://mybatis.org/mybatis-3/zh/sqlmap-xml.html#insert_update_and_delete -->
+        insert into emp (ename, job, mgr, hiredate, sal, comm, deptno)
+        values
+        <foreach item="item" collection="empList" separator=",">
+            (#{item.name},#{item.job},#{item.mgr},#{item.hiredate},#{item.sal},#{item.comm},#{item.deptNumber})
+        </foreach>
+    </insert>
+
+
+</mapper>

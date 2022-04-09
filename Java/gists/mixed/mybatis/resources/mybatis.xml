@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!---->
+    <typeAliases>
+<!--        如果不对实体bean设置别名，在 mapper的resultType中必须要写全类名-->
+        <package name="mybatis.entity"/>
+    </typeAliases>
+<!---->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/javaEE?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="password"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--        <mapper resource="mapper.xml"/>-->
+<!--        <mapper resource="empMapper.xml"/> 如果有多个mapper就用下面的扫描一个文件夹的方式-->
+        <package name="mybatis.agentMapper.mapper"/>
+    </mappers>
+</configuration>
