@@ -3,6 +3,10 @@
 package typeinfo.pets;
 import java.util.*;
 
+/**
+ * 使用类字面量常量进行对象生成
+ */
+
 public class LiteralPetCreator extends PetCreator {
   // No try block needed.
   @SuppressWarnings("unchecked")
@@ -10,7 +14,9 @@ public class LiteralPetCreator extends PetCreator {
     Collections.unmodifiableList(Arrays.asList(
       Pet.class, Dog.class, Cat.class,  Rodent.class,
       Mutt.class, Pug.class, EgyptianMau.class, Manx.class,
-      Cymric.class, Rat.class, Mouse.class,Hamster.class));
+      Cymric.class, Rat.class, Mouse.class,Hamster.class,
+      Gerbil.class // 11
+    ));
   // Types for random creation:
   private static final List<Class<? extends Pet>> types =
     allTypes.subList(allTypes.indexOf(Mutt.class),

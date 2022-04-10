@@ -6,7 +6,7 @@ import static net.mindview.util.Print.*;
 
 public class PetCount4 {
   public static void main(String[] args) {
-    TypeCounter counter = new TypeCounter(Pet.class);
+    TypeCounter counter = new TypeCounter(Pet.class); // TypeCounter是使用isAssignableFrom创建的工具类
     for(Pet pet : Pets.createArray(20)) {
       printnb(pet.getClass().getSimpleName() + " ");
       counter.count(pet);

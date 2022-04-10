@@ -2,6 +2,10 @@
 package typeinfo.pets;
 import java.util.*;
 
+/**
+ * 使用字符串进行对象生成
+ */
+
 public class ForNameCreator extends PetCreator {
   private static List<Class<? extends Pet>> types =
     new ArrayList<Class<? extends Pet>>();
@@ -14,8 +18,9 @@ public class ForNameCreator extends PetCreator {
     "typeinfo.pets.Cymric",
     "typeinfo.pets.Rat",
     "typeinfo.pets.Mouse",
-    "typeinfo.pets.Hamster"
-  };	
+    "typeinfo.pets.Hamster",
+    "typeinfo.pets.Gerbil"
+  };
   @SuppressWarnings("unchecked")
   private static void loader() {
     try {

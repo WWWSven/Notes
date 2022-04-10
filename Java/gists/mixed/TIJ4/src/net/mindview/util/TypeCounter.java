@@ -3,6 +3,9 @@
 package net.mindview.util;
 import java.util.*;
 
+/*
+使用isAssignableFrom创建的工具类
+ */
 public class TypeCounter extends HashMap<Class<?>,Integer>{
   private Class<?> baseType;
   public TypeCounter(Class<?> baseType) {

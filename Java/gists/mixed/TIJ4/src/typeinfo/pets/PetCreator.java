@@ -6,7 +6,7 @@ import java.util.*;
 public abstract class PetCreator {
   private Random rand = new Random(47);
   // The List of the different types of Pet to create:
-  public abstract List<Class<? extends Pet>> types();
+  public abstract List<Class<? extends Pet>> types(); // 子类只需要重新赋值types
   public Pet randomPet() { // Create one random Pet
     int n = rand.nextInt(types().size());
     try {

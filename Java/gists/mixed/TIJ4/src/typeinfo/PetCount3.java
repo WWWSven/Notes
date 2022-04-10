@@ -14,7 +14,7 @@ public class PetCount3 {
     public void count(Pet pet) {
       // Class.isInstance() eliminates instanceofs:
       for(Map.Entry<Class<? extends Pet>,Integer> pair : entrySet())
-        if(pair.getKey().isInstance(pet))
+        if(pair.getKey().isInstance(pet)) // 使用了动态的 Class.isInstance()
           put(pair.getKey(), pair.getValue() + 1);
     }	
     public String toString() {

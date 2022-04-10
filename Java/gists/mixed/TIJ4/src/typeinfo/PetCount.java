@@ -5,6 +5,9 @@ import typeinfo.pets.*;
 import java.util.*;
 import static net.mindview.util.Print.*;
 
+/**
+ * 使用instanceof进行统计
+ */
 public class PetCount {
   static class PetCounter extends HashMap<String,Integer> {
     public void count(String type) {
@@ -21,6 +24,10 @@ public class PetCount {
     for(Pet pet : creator.createArray(20)) {
       // List each individual pet:
       printnb(pet.getClass().getSimpleName() + " ");
+      // 11
+      if (pet instanceof Gerbil)
+        counter.count("Gerbil");
+      /// ~
       if(pet instanceof Pet)
         counter.count("Pet");
       if(pet instanceof Dog)
