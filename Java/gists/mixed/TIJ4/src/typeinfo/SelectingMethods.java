@@ -9,9 +9,7 @@ class MethodSelector implements InvocationHandler {
   public MethodSelector(Object proxied) {
     this.proxied = proxied;
   }
-  public Object
-  invoke(Object proxy, Method method, Object[] args)
-  throws Throwable {
+  public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     if(method.getName().equals("interesting"))
       print("Proxy detected the interesting method");
     return method.invoke(proxied, args);
@@ -36,10 +34,12 @@ class Implementation implements SomeMethods {
 
 class SelectingMethods {
   public static void main(String[] args) {
+    // 返回将方法调用分派到 指定调用处理程序的 指定接口的 代理类的 实例。
     SomeMethods proxy= (SomeMethods)Proxy.newProxyInstance(
-      SomeMethods.class.getClassLoader(),
-      new Class[]{ SomeMethods.class },
-      new MethodSelector(new Implementation()));
+      SomeMethods.class.getClassLoader(), // 指定接口
+      new Class[]{ SomeMethods.class }, // 指定代理类
+      new MethodSelector(new Implementation()) // 指定处理程序
+    );
     proxy.boring1();
     proxy.boring2();
     proxy.interesting("bonobo");

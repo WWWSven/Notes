@@ -3,13 +3,13 @@ package typeinfo; /* Added by Eclipse.py */
 // Registering Class Factories in the base class.
 import typeinfo.factory.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 class Part {
   public String toString() {
     return getClass().getSimpleName();
   }
-  static List<Factory<? extends Part>> partFactories =
-    new ArrayList<Factory<? extends Part>>();	
+  static List<Factory<? extends Part>> partFactories = new ArrayList<Factory<? extends Part>>();
   static {
     // Collections.addAll() gives an "unchecked generic
     // array creation ... for varargs parameter" warning.
