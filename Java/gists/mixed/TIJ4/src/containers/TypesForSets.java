@@ -4,6 +4,7 @@ package containers; /* Added by Eclipse.py */
 import java.util.*;
 
 class SetType {
+  // 元素不可重复的集合
   int i;
   public SetType(int n) { i = n; }
   public boolean equals(Object o) {
@@ -13,12 +14,13 @@ class SetType {
 }
 
 class HashType extends SetType {
+  // 加入hashcode的元素不可重复的集合
   public HashType(int n) { super(n); }
   public int hashCode() { return i; }
 }
 
-class TreeType extends SetType
-implements Comparable<TreeType> {
+class TreeType extends SetType implements Comparable<TreeType> {
+  // 加入排序功能
   public TreeType(int n) { super(n); }
   public int compareTo(TreeType arg) {
     return (arg.i < i ? -1 : (arg.i == i ? 0 : 1));
@@ -26,11 +28,11 @@ implements Comparable<TreeType> {
 }
 
 public class TypesForSets {
+
   static <T> Set<T> fill(Set<T> set, Class<T> type) {
     try {
       for(int i = 0; i < 10; i++)
-          set.add(
-            type.getConstructor(int.class).newInstance(i));
+          set.add(type.getConstructor(int.class).newInstance(i));
     } catch(Exception e) {
       throw new RuntimeException(e);
     }
@@ -44,7 +46,7 @@ public class TypesForSets {
   }
   public static void main(String[] args) {
     test(new HashSet<HashType>(), HashType.class);
-    test(new LinkedHashSet<HashType>(), HashType.class);
+    test(new LinkedHashSet<HashType>(), HashType.class); // linkedHashset，能按照当时插入的顺序去遍历集合
     test(new TreeSet<TreeType>(), TreeType.class);
     // Things that don't work:
     test(new HashSet<SetType>(), SetType.class);
