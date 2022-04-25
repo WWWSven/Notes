@@ -1,9 +1,15 @@
 - 二元运算符双等号
-  - 两个值类型使用双等号比较，比较的是“值”
-  - 两个引用类型使用双等号，比较的是内存地址
-- equals方法
-  - Object类的实现是使用双等号去比较，由于只有引用类型能使用方法，所以equals默认比较的是内存地址
-  - 可以重写equals去比较具体的属性值
-
-- hashcode
-  - native方法，可以通过jvm配置使用不同的算法生成hashcode
+  - 两个值类型使用双等号比较，比较的是“值”。
+  - 两个引用类型使用双等号，比较的是内存地址。
+- Object的equals方法
+  - Object类的实现是使用双等号去比较，由于只有引用类型能使用方法，所以equals默认比较的是内存地址。
+  - 可以重写equals去比较具体的属性值。
+- Object的hashcode方法
+  - native方法，可以通过jvm配置使用不同的算法生成hashcode。
+  - 默认是使用对象的地址计算散列码。
+- 正确的Equals方法的五个条件
+  1. 自反性：对任意x，x.equals(x)一定返回true。
+  2. 对称性：对任意x和y，如果y.equals(x)返回true，则x.equals(y)也返回true。
+  3. 传递性：对任意x，y，z，如果x.equals(y)返回true，y.equals(z)返回true，则x.equals(z)一定返回true。
+  4. 一致性：对任意x和y，如果对象中用于等价比较的信息没有改变，那么无论调用x.equals(y)多少次，返回的结果应该保持一致，要么一直是true，要么一直是false。
+  5. 对任何不是null的x，x.equals(null)一定是false。
