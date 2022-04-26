@@ -120,7 +120,7 @@ public V put(K key, V value) {
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
     Node<K,V>[] tab; // 散列表
     Node<K,V> p; // i位置的元素
-    int n, i; // n：散列表长读，i：算出的在tab中的位置，
+    int n, i; // n：散列表长度，i：算出的在tab中的位置，
     // 初始化散列表，使用resize()
     if ((tab = table) == null || (n = tab.length) == 0)
         n = (tab = resize()).length;
@@ -131,7 +131,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
     	// 发生了散列冲突，
         Node<K,V> e; 
         K k; // key
-        if (p.hash == hash &&
+        if (p.hash == hash && // 先比较hash值，hash值相等再比较equals或者内存地址
             // key的hash值相等 && (key的内存地址相同 || key的属性相同)
 	        // 说明这个待插入的key在tab中已经存在 
             ((k = p.key) == key || (key != null && key.equals(k))))
@@ -185,13 +185,15 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 	static final int TREEIFY_THRESHOLD = 8;
 ```
 
-- i = (n - 1) & hash 来得到该对象在数组中的下标，
-
+- 散列表的散列函数
+  i = (n - 1) & hash ，其实就是散列表长度与上key的哈希值，来得到该key在数组中的下标，
+  
   | (15-1)&hash(0)=0 	 1110&0=0 <br/>(15-1)&hash(1)=0 	 1110&1=0 <br/>(15-1)&hash(2)=2 	 1110&10=10 <br/>(15-1)&hash(3)=2 	 1110&11=10 <br/>(15-1)&hash(4)=4 	 1110&100=100 <br/>(15-1)&hash(5)=4 	 1110&101=100 | (16-1)&hash(0)=0 	 1111&0=0 <br/>(16-1)&hash(1)=1 	 1111&1=1 <br/>(16-1)&hash(2)=2 	 1111&10=10 <br/>(16-1)&hash(3)=3 	 1111&11=11 <br/>(16-1)&hash(4)=4 	 1111&100=100 <br/>(16-1)&hash(5)=5 	 1111&101=101 |
   | ------------------------------------------------------------ | ------------------------------------------------------------ |
-
-  - 2的倍数的特性就出现了
   
+  - **2的倍数**的特性就出现了，2的倍数长度的散列表
+    这个2的倍数的解释再扩容中有写
+    
     ```java
     // 测试用的代码
     public class Main {
@@ -212,13 +214,9 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
         }
     }
     ```
-  
-- ```java
-    
-  ```
 
 
-### hash算法
+### 对key的hash算法
 
 ```java
 /**
@@ -243,7 +241,8 @@ static final int hash(Object key) {
 }
 ```
 
-- (h = key.hashCode()) ^ (h >>> 16)
+- 其实就是：key的hashcode异或key的hashcode右移16位
+  (h = key.hashCode()) ^ (h >>> 16)
   - key的hashcode ^ key的hashcode无符号右移16位
 
 ------
@@ -267,16 +266,18 @@ static final int hash(Object key) {
 int threshold;
 ```
 
-threshold 在 构造函数里初始化，通过tableSizeFor()
+threshold 在 构造函数里初始化，通过tableSizeFor()，这个函数也保证了散列表的长度为2的倍数的特性。
 
 ```java
 this.threshold = tableSizeFor(initialCapacity); // 初始化扩容阈值
 ```
 
-### resize()，为啥数组长度是2的n次幂？
+### resize()，为啥数组长度是2的倍数？
 
 > 1：数组长度：太小了resize频繁，太大了浪费空间，
 > 2：在putVal 计算在tab的下标的时候可以减少冲突
+
+- 一般散列函数是初留余数法比较常见，
 
 ```java
 final HashMap.Node<K,V>[] resize() {
