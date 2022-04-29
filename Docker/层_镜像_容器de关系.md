@@ -57,6 +57,7 @@ RUN echo aaaaaaaaabbbbbbbbbb>>hello.txt
 
 - 不同容器之间有隔离，但是又基于一个写时复制的只读镜像，所以不会太占硬盘。
   ![共享相同镜像的容器](../.image/sharing-layers.jpg)
+  
   - ![image-20220424220607154](../.image/image-20220424220607154.png)
   - ![image-20220424225911360](../.image/image-20220424225911360.png)
 - 镜像和容器占用磁盘空间的计算
