@@ -1,3 +1,5 @@
+### 设计模式
+
 #### 创建型模式（Creational Patterns）
 
 - 创建型模式提供了创建对象的机制， 能够提升已有代码的灵活性和可复用性。
@@ -21,3 +23,33 @@
 - 典型的是[迭代器模式](https://refactoringguru.cn/design-patterns/iterator)
 
   > 迭代器模式是一种行为设计模式， 让你能在不暴露集合底层表现形式 （列表、 栈和树等） 的情况下遍历集合中所有的元素。
+
+### 网络编程
+
+#### 同步与阻塞
+
+- Synchronous
+- Asynchronous
+- Blocking
+- Nonblocking
+
+![image-20220513151404776](../.image/image-20220513151404776.png)
+
+#### java 提供的线程池
+
+![image-20220513191659960](../.image/image-20220513191659960.png)
+
+![image-20220513191648070](../.image/image-20220513191648070.png)
+
+![image-20220513191635709](../.image/image-20220513191635709.png)
+
+#### 发展历程
+
+> java.io 包下的设计模式
+>
+> - 装饰器
+
+- BIO
+- NIO
+- AIO
+
