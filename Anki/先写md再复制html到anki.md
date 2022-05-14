@@ -43,13 +43,36 @@
 
 ![image-20220513191635709](../.image/image-20220513191635709.png)
 
+- FixedThreadPool：线程数固定的线程池；
+
+- CachedThreadPool：线程数根据任务动态调整的线程池；
+
+- SingleThreadExecutor：仅单线程执行的线程池；
+
+- ScheduledThreadPool：任务可以定期反复执行；
+
+  ```java
+  ScheduledExecutorService ses = Executors.newScheduledThreadPool(4);
+  // 1秒后执行一次性任务:
+  ses.schedule(new Task("one-time"), 1, TimeUnit.SECONDS);
+  // 2秒后开始执行定时任务，每3秒执行:FixedRate是指任务总是以固定时间间隔触发，不管任务执行多长时间
+  ses.scheduleAtFixedRate(new Task("fixed-rate"), 2, 3, TimeUnit.SECONDS);
+  // 2秒后开始执行定时任务，以3秒为间隔执行:FixedDelay是指，上一次任务执行完毕后，等待固定的时间间隔，再执行下一次任务
+  ses.scheduleWithFixedDelay(new Task("fixed-delay"), 2, 3, TimeUnit.SECONDS);
+  ```
+
+- ThreadPoolExecutor：根据自己需要的场景来创建一个合适的线程池；
+
+  > 推荐使用
+
 #### 发展历程
 
 > java.io 包下的设计模式
 >
 > - 装饰器
 
-- BIO
+- Blocking IO
+  - 
 - NIO
 - AIO
 
