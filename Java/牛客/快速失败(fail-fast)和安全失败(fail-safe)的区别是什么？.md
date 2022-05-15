@@ -12,6 +12,75 @@
 
    场景：java.util包下的集合类都是快速失败的，不能在多线程下发生并发修改（迭代过程中被修改）。
 
+----------------
+
+- java.util下的类调用iterator方法的时候会记录一个modCount值。
+
+  ![image-20220515165920806](../../.image/image-20220515165920806.png)
+
+- 集合在被遍历期间如果结构发生变化（增删操作），就会改变modCount的值。
+  每当迭代器使用hashNext()/ next()遍历下一个元素之前，都会检测modCount变量是否为expectedmodCount值，是的话就返回遍历；否则抛出异常，终止遍历。
+
+```java
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
+class myArrList {
+    public int[] arr = new int[10];
+    int index = -1;
+    int modCount = 0;
+    // add
+    public void add(int num){
+        modCount++;
+        this.index++;
+        arr[this.index]=num;
+    }
+    // delete
+    public int delete(int index){
+        modCount++;
+        if (index<0) return 0;
+        int foo = arr[index];
+        arr[index] = 0;
+        this.index--;
+        return foo;
+    }
+    public Iterator getit(){
+        return new it();
+    }
+    class it implements Iterator{
+        int expectedModCount = modCount;
+        int i = index;
+        @Override
+        public boolean hasNext() {
+            if (expectedModCount!=modCount)throw new ConcurrentModificationException();
+            return i>-1;
+        }
+        @Override
+        public Object next() {
+            if (expectedModCount!=modCount)throw new ConcurrentModificationException();
+            return arr[i--]; // ,,,倒序输出，，，菜
+        }
+    }
+}
+class test{
+    public static void main(String[] args) {
+        myArrList a = new myArrList();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        // System.out.println(Arrays.toString(a.arr));
+
+        Iterator i = a.getit();
+        a.add(2); // 导致！=成立，抛出异常
+        while (i.hasNext()){
+            System.out.println(i.next());
+        }
+    }
+}
+```
+
+
+
 ## 二：安全失败（fail—safe）
 
    采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。
