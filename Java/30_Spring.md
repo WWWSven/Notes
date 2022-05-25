@@ -36,4 +36,20 @@
 
   - [在实践中，有些人认为annotation很优雅，而他们认为 XML 冗长、丑陋且难以维护，而另一些人则认为annotation污染了 POJO 模型。](https://en.wikipedia.org/wiki/Plain_old_Java_object#cite_note-7)
 
-- 
+# spring_refresh
+
+## 12个阶段
+
+![image-20220525214347820](../.image/image-20220525214347820.png)
+
+### Envirment对象
+
+### 获取BeanFactory
+
+### 拓展BeanFactory
+
+### 注册bean后处理器
+
+### applicationContext各项功能
+
+### 初始化单例，完成refresh
