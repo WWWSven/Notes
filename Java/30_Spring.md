@@ -40,7 +40,7 @@
 
 ## 12个阶段
 
-![image-20220525214347820](../.image/image-20220525214347820.png)
+![image-20220526134925765](../.image/image-20220526134925765.png)
 
 ### Envirment对象
 
@@ -53,3 +53,12 @@
 ### applicationContext各项功能
 
 ### 初始化单例，完成refresh
+
+# spring_bean
+
+![image-20220526153442286](../.image/image-20220526153442286.png)
+
+## 主要方法
+
+- AbstractBeanFactory 的 doGetBean 方法会在 refresh 的第11个阶段 finishBeanFactoryInitialization 的时候被调用。这个doGetBean就是bean的生命周期的体现。
+- bean有不同的scop，不同scop的bean有不同的生命周期。
