@@ -14,7 +14,8 @@ IDE
 
 - 操作码 + 操作数
 - CPU 寄存器 主存 辅存
-- 地址线 数据线 控制线
+  - 地址线 数据线 控制线cccc we
+
 
 debug.exe 参数
 
@@ -51,5 +52,4 @@ masm test
 link test
 test
 ```
-
 
