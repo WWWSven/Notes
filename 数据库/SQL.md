@@ -4,7 +4,7 @@ SELECT selection_list /*要查询的列名称*/
 ​	WHERE condition /*行条件*/
 ​	GROUP BY grouping_columns /*对结果分组*/
 ​	HAVING condition /*分组后的行条件*/
-(在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与聚合函数一起使用。HAVING 子句可以让我们筛选分组后的各组数据)
+(在 SQL 中增加 HAVING 子句原因是，HAVING 子句可以让我们筛选分组后的各组数据)
 ​	ORDER BY sorting_columns /*对结果排序*/
 ​	LIMIT offset_start, row_count /*结果限定*/
 ```
