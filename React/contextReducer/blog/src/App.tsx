@@ -1,17 +1,16 @@
 import { useReducer } from "react";
-import CLI from "./component/CLI";
 import { GlobalContextProvider } from "./hook/useGlobalContext";
 import ButtonPage from "./page/ButtonPage";
 import Page1 from "./page/Page1";
 import Page2 from "./page/Page2";
 import { init as themeInit, reducer as themeReducer} from "./store/theme";
 import { init as userInfoInit, reducer as userInfoReducer } from "./store/userInfo";
-import { init as cliInit, reducer as cliReducer} from "./component/cliStore";
+import Router from "./component/Router";
+import { IRouterArr } from "./component/routerStore"
 
 function App() {
   	const [themeStore, themeDispatch] = useReducer(themeReducer, themeInit); // useReducer 是有三个参数的
 	const [userInfoStore, userInfoDispatch] = useReducer(userInfoReducer, userInfoInit);
-	const [cliStore, cliDispatch] = useReducer(cliReducer, cliInit);
 
 	const providerValue = {
 		theme: {
@@ -21,22 +20,56 @@ function App() {
 		userInfo: {
 			store: userInfoStore,
 			dispatch: userInfoDispatch
-		},
-		cli: {
-			store: cliStore,
-			dispatch: cliDispatch
 		}
 	};
 
+	const routerConfig: IRouterArr = [
+		{
+			name: "主页",
+			path: "/",
+			element: <div key={'主页'}>fuck 主页</div>,
+			loader: undefined,
+			action: undefined,
+			errorComponent: undefined
+		},
+		{
+			name: "文章列表",
+			path: "/articles",
+			element: <Page1 key={'文章列表'}/>,
+			loader: undefined,
+			action: undefined,
+			errorComponent: undefined,
+			children: [
+				{
+					name: "文章详情",
+					path: "/:artId",
+					element: <Page1 key={'文章详情'}/>,
+					loader: undefined,
+					action: undefined,
+					errorComponent: undefined
+				},
+				{
+					name: "文章编辑",
+					path: "/:artId/edit",
+					element: <Page1 key={'文章编辑'}/>,
+					loader: undefined,
+					action: undefined,
+					errorComponent: undefined
+				},
+			]
+		}
+	]
+
+
   return <GlobalContextProvider value={providerValue}>
-    <Page1/>
-	<hr />
-    <Page2/>
-	<hr />
-	<ButtonPage/>
-	<hr />
-	{/* 命令输入组件, 接收命令, 命令匹配上了输出对应路由, 对不上则输出默认 */}
-	<CLI />
+	<Router router={routerConfig}>
+		<Page1/>
+		<hr style={{color: 'red'}}/>
+		<Page2/>
+		<hr />
+		<ButtonPage/>
+		<hr />
+	</Router>
   </GlobalContextProvider>
 }
 

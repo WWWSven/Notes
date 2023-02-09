@@ -7,7 +7,7 @@ export default ()=>{
 
     return <>
     {
-        console.log(contextAll)
+        // console.log(contextAll)
     }
         <div>
             color:

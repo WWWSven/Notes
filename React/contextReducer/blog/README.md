@@ -20,3 +20,12 @@ const loaderData = useLoaderData()
 const navigate = useNavigate()
 navigate(-1)
 ```
+
+##### 需要Outlet组件提供出口
+
+##### 需要一个localstorage提供本地化能力
+
+---
+
+- 参考
+  - https://github.com/ruanyl/reapex
