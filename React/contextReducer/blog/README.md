@@ -28,4 +28,5 @@ navigate(-1)
 ---
 
 - 参考
-  - https://github.com/ruanyl/reapex
+  - https://github.com/ruanyl/reapex    redux
+  -

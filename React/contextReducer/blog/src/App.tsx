@@ -5,7 +5,7 @@ import Page1 from "./page/Page1";
 import Page2 from "./page/Page2";
 import { init as themeInit, reducer as themeReducer} from "./store/theme";
 import { init as userInfoInit, reducer as userInfoReducer } from "./store/userInfo";
-import Router from "./component/Router";
+import Router, {useNavigator} from "./component/Router";
 import { IRouterArr } from "./component/routerStore"
 
 function App() {
@@ -23,11 +23,16 @@ function App() {
 		}
 	};
 
+	const [go] = useNavigator('/articles')
+
 	const routerConfig: IRouterArr = [
 		{
 			name: "主页",
 			path: "/",
-			element: <div key={'主页'}>fuck 主页</div>,
+			element: <div key={"主页"}>
+				主页
+				<button onClick={()=>{go()}}>文章列表</button>
+			</div>,
 			loader: undefined,
 			action: undefined,
 			errorComponent: undefined
@@ -35,14 +40,14 @@ function App() {
 		{
 			name: "文章列表",
 			path: "/articles",
-			element: <Page1 key={'文章列表'}/>,
+			element: <div key={"文章列表"}>这里是文章列表</div>,
 			loader: undefined,
 			action: undefined,
 			errorComponent: undefined,
 			children: [
 				{
 					name: "文章详情",
-					path: "/:artId",
+					path: `/${1}`,
 					element: <Page1 key={'文章详情'}/>,
 					loader: undefined,
 					action: undefined,
@@ -62,14 +67,7 @@ function App() {
 
 
   return <GlobalContextProvider value={providerValue}>
-	<Router router={routerConfig}>
-		<Page1/>
-		<hr style={{color: 'red'}}/>
-		<Page2/>
-		<hr />
-		<ButtonPage/>
-		<hr />
-	</Router>
+	<Router router={routerConfig} />
   </GlobalContextProvider>
 }
 

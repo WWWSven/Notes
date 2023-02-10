@@ -1,50 +1,53 @@
 import React, { useEffect, useState } from "react";
-import { IRouterArr } from "./routerStore";
+import { IRouter, IRouterArr } from "./routerStore";
 
 /**
- * 路由组件
- * 
+ * A Router
  */
 
-type ReactNodeProps = {
-    children: React.ReactNode
-    router: any
-};
+type routerProps = {
+    router: IRouterArr
+}
 
-export default (props: ReactNodeProps)=>{
+let setNavigator: React.Dispatch<React.SetStateAction<string>>
+
+export default (props: routerProps)=>{
     const router: IRouterArr = props.router
-    let children: React.ReactNode = props.children
 
-    const _ele: React.ReactNode = router[0].element
+    // the default renders the index element of the router config obj is path like '/'
+    const pathName: string = document.location.pathname // a pathName after of port before of #, like /test/%E4%B8%AD%E6%96%87
+    console.log(pathName, 'a pathName when the first render')
 
-    const pathName = document.location.pathname // 端口后, #前, /test/%E4%B8%AD%E6%96%87
-    console.log(pathName)
-    const [state, setState] = useState()
+    const [path, setPath] = useState(pathName)
+    setNavigator = setPath
 
-
+    let newElement: React.ReactNode = router.find((v: IRouter)=> v.path === path)?.element
+    console.log(newElement)
     window.addEventListener('popstate', (event)=>{
-        // 这一页面的状态, 在pushState的时候传的参数 = event.state (https://developer.mozilla.org/zh-CN/docs/Web/API/Window/popstate_event)
-        const pathName = document.location.pathname // 端口后, #前, /test/%E4%B8%AD%E6%96%87
-        console.log(pathName)
-        if(pathName==='/'){
-            children = _ele
-        }
-        alert(pathName)
-        setState(state)
+        // about the event arguments https://developer.mozilla.org/zh-CN/docs/Web/API/Window/popstate_event
+        const newpath: string = document.location.pathname // a pathName after of port before of #, like /test/%E4%B8%AD%E6%96%87
+        console.log(newpath, 'a pathName on the popstate event happend')
+        // get a component by pathName
+        const element: React.ReactNode = router.find((v: IRouter)=> v.path === newpath)?.element
+        // set new element
+        newElement = element
+        // rerender
+        setPath(newpath)
     })
 
+
+    // navigator传进来路由path, 根据路由path渲染路由配置的组件 
+    // 1: 直接地址栏进入, 那根据地址栏渲染
+    // 2: 使用export的setState函数传递路由path渲染, 
+
+    const needRenderEle = newElement || <>Error Page</>
     return <>
-    {console.log('ddd')}
+    {console.log('rerendering......')}
     {
-        // React.Children.map(children, (child)=>{
-        //     // do something
-        //     console.log(child)
-        //     return child
-        // })
-        
-        React.Children.map(children, (child, index)=>{
+        // the / element is render by no newElement
+        React.Children.map(needRenderEle, (child)=>{
             if(React.isValidElement(child)){
-                const newEle = React.cloneElement(child, {...child.props, a:'1'}) // todo
+                const newEle = React.cloneElement(child, {...needRenderEle.props, a:'1'}) // todo
                 return newEle
             }else{
                 return null
@@ -54,4 +57,21 @@ export default (props: ReactNodeProps)=>{
     </>
 }
 
+export const useNavigator = (path: string): Function[] =>{
+    // change browers state
+    const setBrower = ()=> window.history.pushState(null, '', path)
+    // return exec function setNavigator to call setState
+    const setNav = ()=> setNavigator(path)
+    // !!! may be change state ammoment than realy rerender
+    const go = ()=>{
+        setBrower()
+        setNav()
+    }
+    // 给一个可以撤回setBrower的函数
+    return [go, setBrower, setNav]
+}
 
+/**
+ * todos
+ * children的渲染
+ */
