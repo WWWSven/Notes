@@ -5,8 +5,10 @@ import Page1 from "./page/Page1";
 import Page2 from "./page/Page2";
 import { init as themeInit, reducer as themeReducer} from "./store/theme";
 import { init as userInfoInit, reducer as userInfoReducer } from "./store/userInfo";
-import Router, {useNavigator} from "./component/Router";
+import Router from "./component/Router";
 import { IRouterArr } from "./component/routerStore"
+import RouterPage1 from "./page/RouterPage1";
+import RouterPage2 from "./page/RouterPage2";
 
 function App() {
   	const [themeStore, themeDispatch] = useReducer(themeReducer, themeInit); // useReducer 是有三个参数的
@@ -23,16 +25,12 @@ function App() {
 		}
 	};
 
-	const [go] = useNavigator('/articles')
 
 	const routerConfig: IRouterArr = [
 		{
 			name: "主页",
 			path: "/",
-			element: <div key={"主页"}>
-				主页
-				<button onClick={()=>{go()}}>文章列表</button>
-			</div>,
+			element: <RouterPage1 key={"page1"}/>,
 			loader: undefined,
 			action: undefined,
 			errorComponent: undefined
@@ -40,14 +38,14 @@ function App() {
 		{
 			name: "文章列表",
 			path: "/articles",
-			element: <div key={"文章列表"}>这里是文章列表</div>,
+			element: <RouterPage2 key={"page2"}/>,
 			loader: undefined,
 			action: undefined,
 			errorComponent: undefined,
 			children: [
 				{
 					name: "文章详情",
-					path: `/${1}`,
+					path: `/:artId`,
 					element: <Page1 key={'文章详情'}/>,
 					loader: undefined,
 					action: undefined,

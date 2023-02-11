@@ -32,7 +32,9 @@ export default (props: routerProps)=>{
         // set new element
         newElement = element
         // rerender
-        setPath(newpath)
+        if(newpath!==path){
+            setPath(newpath)
+        }
     })
 
 
