@@ -21,8 +21,18 @@ export default (props: routerProps)=>{
     const [path, setPath] = useState(pathName)
     setNavigator = setPath
 
-    let newElement: React.ReactNode = router.find((v: IRouter)=> v.path === path)?.element
-    console.log(newElement)
+    
+    let newElement: React.ReactNode
+    const splitPath: string[] = pathName.split('/')
+    const pathEle: string[] = splitPath.filter(path=>path!=='')
+    for(let i=0; i<pathEle.length; i++){
+        const path = '/' + pathEle[i]
+        const aRouter: IRouter|undefined = router.find((v: IRouter)=> v.path === path)
+        newElement = aRouter?.element
+    }
+
+
+    console.log(newElement, 'f')
     window.addEventListener('popstate', (event)=>{
         // about the event arguments https://developer.mozilla.org/zh-CN/docs/Web/API/Window/popstate_event
         const newpath: string = document.location.pathname // a pathName after of port before of #, like /test/%E4%B8%AD%E6%96%87
@@ -49,7 +59,7 @@ export default (props: routerProps)=>{
         // the / element is render by no newElement
         React.Children.map(needRenderEle, (child)=>{
             if(React.isValidElement(child)){
-                const newEle = React.cloneElement(child, {...needRenderEle.props, a:'1'}) // todo
+                const newEle = React.cloneElement(child, {...child.props, a:'1'}) // todo
                 return newEle
             }else{
                 return null
