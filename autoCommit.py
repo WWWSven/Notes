@@ -16,7 +16,7 @@ if __name__=="__main__":
     os.chdir(script_dir)
 
     # 执行 Git 命令
-    subprocess.run(["git", "pull"])
+    subprocess.run(["git", "pull", "origin", "master"])
     subprocess.run(["git", "status"])
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", f"{now}"])
