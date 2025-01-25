@@ -1,0 +1,29 @@
+pre {
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+
+pre [data-line] {
+    padding: 0 1rem;
+}
+
+code {
+    counter-reset: line;
+}
+
+code > ::before {
+    counter-increment: line;
+    content: counter(line);
+
+    /* Other styling */
+    display: inline-block;
+    width: 0.75rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+}
+
+.icon.icon-link {
+    color: red;
+    font-size: 16px;
+}
