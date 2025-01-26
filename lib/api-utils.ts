@@ -9,10 +9,11 @@ const repo = process.env.GITHUB_REPO
 const branch = process.env.GITHUB_BRANCH
 
 export const requestTrees = async () => {
-  return requestTreesBySha(branch);
+  return requestTreesBySha(branch!);
 }
 
-export const requestTreesBySha = async (sha) => {
+export const requestTreesBySha = async (sha: string) => {
+  if (!sha) throw new Error('SHA is required'); // 抛出一个错误
   const tree = await octokit.request(`GET /repos/${user}/${repo}/git/trees/${sha}`, {
     owner: 'OWNER',
     repo: 'REPO',
@@ -25,7 +26,8 @@ export const requestTreesBySha = async (sha) => {
   return tree;
 }
 
-export const requestBlobsBySha = async (sha) => {
+export const requestBlobsBySha = async (sha: string) => {
+  if (!sha) throw new Error('SHA is required'); // 抛出一个错误
   let blob = await octokit.request(`GET /repos/${user}/${repo}/git/blobs/${sha}`, {
     owner: 'OWNER',
     repo: 'REPO',
@@ -37,7 +39,8 @@ export const requestBlobsBySha = async (sha) => {
   return blob;
 }
 
-export const requestContentByPath = async (path) => {
+export const requestContentByPath = async (path: string) => {
+  if (!path) throw new Error('SHA is required'); // 抛出一个错误
   const data = await octokit.request(`GET /repos/${user}/${repo}/contents/${path}`, {
     owner: 'OWNER',
     repo: 'REPO',

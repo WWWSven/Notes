@@ -38,7 +38,7 @@ export function AppSidebar({
 }) {
   const [tree, setTree] = useState(data as Tree)
 
-  const CollapsibleCustom = ({triggerArg, contentArg}) => {
+  const CollapsibleCustom = ({triggerArg, contentArg}: {triggerArg: GitBlob, contentArg: Tree}) => {
     const [isOpen, setIsOpen] = useState(false) // 每个文件夹独立的状态
     const [trigger, setTrigger] = useState(triggerArg)
     const [content, setContent] = useState(contentArg)

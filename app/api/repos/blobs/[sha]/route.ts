@@ -11,9 +11,13 @@ export async function GET(
   return Response.json(blob.data)
 }
 
-function base64Decode(base64) {
-  const binString = atob(base64);
-  const byteArr = Uint8Array.from(binString, (m) => m.codePointAt(0));
-  return new TextDecoder().decode(byteArr);
+function base64Decode(base64: string): string {
+  try {
+    const binString = atob(base64);
+    const byteArr = Uint8Array.from(binString, (m) => m.codePointAt(0)!);
+    return new TextDecoder().decode(byteArr);
+  } catch (error) {
+    console.error('Error decoding Base64 string:', error);
+    throw error; // 或者返回一个默认值
+  }
 }
-

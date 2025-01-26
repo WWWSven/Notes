@@ -10,7 +10,7 @@ export async function GET(
   const tree = await requestTreesBySha(sha)
 
   const treeBySha: GitBlob[] = tree.data.tree.filter(
-    e=>
+    (e: GitBlob)=>
       (e.type=='blob' && e.path.endsWith('.md') && !e.path.startsWith('.'))  ||
       (e.type=='tree' && !e.path.startsWith('.'))
   )

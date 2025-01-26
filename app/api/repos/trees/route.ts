@@ -13,7 +13,7 @@ export async function GET() {
   const res = await requestTrees()
 
   const tree: GitBlob[] = res.data.tree.filter(
-    e=>
+    (e: GitBlob)=>
       (e.type=='blob' && e.path.endsWith('.md') && !e.path.startsWith('.'))  ||
       (e.type=='tree' && !e.path.startsWith('.'))
   )

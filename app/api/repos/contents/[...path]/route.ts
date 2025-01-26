@@ -2,7 +2,7 @@ import {requestContentByPath} from "@/lib/api-utils";
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ path: string }> }
+  { params }: { params: Promise<{ path: string[] }> }
 ){
   const path = (await params).path.join('/')
   const response = await requestContentByPath(path)
