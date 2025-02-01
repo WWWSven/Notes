@@ -14,7 +14,7 @@ export default async function Page({
   params: Promise<{ sha: string }>
 }) {
   const sha = (await params).sha
-  const res = await fetch(`http://localhost:3000/api/repos/blobs/${sha}`)
+  const res = await fetch(`http://localhost:3000/api/repos/blobs/${sha}`, {cache: "no-store"})
   const resJson = await res.json()
   const content = resJson.content
 
