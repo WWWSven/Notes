@@ -25,7 +25,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const res: Response = await fetch('http://localhost:3000/api/repos/trees', {cache: "no-store"})
+  const res: Response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/repos/trees`, {cache: "no-store"})
   const data: GitBlob[] = await res.json()
 
   return (

@@ -44,7 +44,7 @@ export function AppSidebar({
     const [content, setContent] = useState(contentArg)
 
     function fetchBySha(){
-      fetch(`http://localhost:3000/api/repos/trees/${trigger.sha}`, {cache: "no-store"}).then(
+      fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/repos/trees/${trigger.sha}`, {cache: "no-store"}).then(
         value => {
           value.json().then(r => {
             setContent(r)

@@ -3,7 +3,7 @@ export async function MdImg({
 }: {
   src: string; alt?: string
 }) {
-  const resp = await (await fetch(`http://localhost:3000/api/repos/contents/${src}`, {cache: "no-store"})).json()
+  const resp = await (await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/repos/contents/${src}`, {cache: "no-store"})).json()
   const imageBase64 = `data:image/webp;base64,${resp.content}`
 
   return (
