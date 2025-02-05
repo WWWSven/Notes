@@ -7,8 +7,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import './page.css'
 import {MdImg} from "@/components/md-img";
-import mdxMermaid from 'mdx-mermaid'
-import {Browser} from "puppeteer-core";
+import remarkMermaid from "@/components/remarkMermaid"
 
 export default async function Page({
   params,
@@ -26,7 +25,7 @@ export default async function Page({
       remarkPlugins: [
         [remarkGfm, {singleTilde: false}],
         [remarkToc, {tight: true,}],
-        [mdxMermaid, {output: 'svg', mermaid: { theme: 'dark' }, theme: { light: 'neutral', dark: 'forest' }}],
+        [remarkMermaid, {output: 'svg', mermaid: { theme: 'dark' }, theme: { light: 'neutral', dark: 'forest' }}],
       ],
       rehypePlugins: [
         [rehypePrettyCode, {keepBackground: false}],
