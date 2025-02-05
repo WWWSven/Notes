@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug'
 import './page.css'
 import {MdImg} from "@/components/md-img";
 import mdxMermaid from 'mdx-mermaid'
-import {Mermaid} from 'mdx-mermaid/lib/Mermaid'
+import {Browser} from "puppeteer-core";
 
 export default async function Page({
   params,
@@ -60,7 +60,7 @@ export default async function Page({
 
 
 const components = {
-  h1: ({ children }: { children: React.ReactNode }) => (
+  h1: ({children}: { children: React.ReactNode }) => (
     <h1 style={{ color: 'red', fontSize: '2rem' }}>{children}</h1>
   ),
   img: MdImg,

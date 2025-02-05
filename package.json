@@ -25,6 +25,7 @@
     "mdx-mermaid": "^2.0.3",
     "mermaid": "^11.4.1",
     "next": "15.1.5",
+    "puppeteer": "^24.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rehype": "^13.0.2",

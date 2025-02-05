@@ -1,4 +1,0 @@
-{
-  "installCommand": "dnf install -y $(cat chrome-dependencies.txt) && npm install && npm exec browsers install chrome@127.0.6533.88 --path /home/sbx_user1051/.cache/puppeteer",
-  "framework": "nextjs"
-}
