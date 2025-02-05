@@ -26,6 +26,7 @@ import {GitBlob} from "@/app/api/repos/trees/route";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import {cn} from "@/lib/utils";
 
 type Tree = (GitBlob & {
   children: Tree
@@ -42,8 +43,10 @@ export function AppSidebar({
     const [isOpen, setIsOpen] = useState(false) // 每个文件夹独立的状态
     const [trigger, setTrigger] = useState(triggerArg)
     const [content, setContent] = useState(contentArg)
+    const [skeleton, setSkeleton] = useState<boolean>(false)
 
     function fetchBySha(){
+      setSkeleton(true)
       fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/repos/trees/${trigger.sha}`, {cache: "no-store"}).then(
         value => {
           value.json().then(r => {
@@ -54,13 +57,20 @@ export function AppSidebar({
         reason => {
           alert(reason)
         }
-      )
+      ).finally(()=>{
+        setSkeleton(false)
+      })
     }
 
     return (
       <>
         <SidebarMenuItem>
-          <SidebarMenuButton asChild>
+          <SidebarMenuButton asChild
+           className={cn(
+             skeleton?'animate-pulse':'',
+             isOpen?'bg-secondary/80':'',
+           )}
+          >
             {trigger.type == 'tree' ?
               <div onClick={fetchBySha}>
                 <FolderCode/>

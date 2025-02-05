@@ -7,6 +7,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import './page.css'
 import {MdImg} from "@/components/md-img";
+import mdxMermaid from 'mdx-mermaid'
+import {Mermaid} from 'mdx-mermaid/lib/Mermaid'
 
 export default async function Page({
   params,
@@ -24,6 +26,7 @@ export default async function Page({
       remarkPlugins: [
         [remarkGfm, {singleTilde: false}],
         [remarkToc, {tight: true,}],
+        [mdxMermaid, {output: 'svg', mermaid: { theme: 'dark' }, theme: { light: 'neutral', dark: 'forest' }}],
       ],
       rehypePlugins: [
         [rehypePrettyCode, {keepBackground: false}],
@@ -36,7 +39,7 @@ export default async function Page({
             properties: { class: 'icon icon-link' },
             children: [{ type: 'text', value: '' }],
           },
-        },]
+        },],
       ],
       remarkRehypeOptions: {
         allowDangerousHtml: false,
