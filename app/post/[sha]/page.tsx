@@ -67,5 +67,4 @@ const components = {
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => {
     return <div {...props}>{props.children}</div>;
   },
-  mermaid: Mermaid, Mermaid
 };
