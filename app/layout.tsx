@@ -30,6 +30,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={'dark'}>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown-dark.min.css"
+      />
+    </head>
     <body
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >

@@ -52,7 +52,7 @@ export default async function Page({
     baseUrl: import.meta.url,
   }as RunOptions)
 
-  return <div className="bg-white/10 p-8 rounded-md">
+  return <div className="bg-white/10 p-8 rounded-md markdown-body">
     <MDXContent components={components}/>
   </div>
 }
