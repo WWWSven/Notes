@@ -9,18 +9,44 @@ import { LaunchOptions } from "puppeteer-core"
 const chrome = require("@sparticuz/chromium")
 const puppeteer = require("puppeteer-core")
 
+let browserInstance = null;
+const pagePool = [];
+
+const initBrowser = async () => {
+  if (!browserInstance) {
+    const options = {
+      args: [
+        ...chrome.args,
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage"
+      ],
+      executablePath: process.env.NODE_ENV === 'production'
+        ? await chrome.executablePath()
+        : '/Users/sven/Desktop/temp/chromium/mac_arm-1427560/chrome-mac/Chromium.app/Contents/MacOS/Chromium',
+      headless: true
+    } as LaunchOptions;
+
+    browserInstance = await puppeteer.launch(options);
+    // 预创建页面池
+    const initialPages = await Promise.all(
+      Array(5).fill(null).map(() => browserInstance.newPage())
+    );
+    pagePool.push(...initialPages);
+  }
+  return browserInstance;
+};
+
+
 const renderToSvg = async (id, src, config, url) => {
-  const options= {
-    args: [...chrome.args, "--no-sandbox", "--disable-setuid-sandbox"],
-    defaultViewport: chrome.defaultViewport,
-    executablePath: await chrome.executablePath(),
-    headless: chrome.headless,
-    dumpio: true
-  } as LaunchOptions
-  console.log('option', options)
-  let browser = await puppeteer.launch(options);
+  await initBrowser();
+
+  const page = pagePool.length > 0
+    ? pagePool.pop()
+    : await browserInstance.newPage();
+
   try {
-    let page = await browser.newPage();
+    // let page = await browser.newPage();
     await page.goto(`data:text/html,<!DOCTYPE html><script src="${url}"></script>`);
     return await page.evaluate((diagramId, mermaidDiagram, config) => {
       window.mermaid.initialize({ startOnLoad: false, ...config });
@@ -31,9 +57,8 @@ const renderToSvg = async (id, src, config, url) => {
         return JSON.stringify(error);
       }
     }, id, src, config);
-  }
-  finally {
-    await browser.close();
+  } finally {
+    pagePool.push(page);
   }
 };
 
@@ -82,7 +107,7 @@ const outputSVG = async (node, index, parent, config) => {
     }
   });
   const js = toJs(estree, { handlers: jsx });
-  const tree = fromMarkdown(js.value.substring(2, js.value.length - 5), {
+  const tree = fromMarkdown(js.value, {
     extensions: [mdxjs()],
     mdastExtensions: [mdxFromMarkdown()]
   });
@@ -109,6 +134,15 @@ function plugin(config) {
     }
     return ast;
   };
+}
+
+// 在 Next.js 生命周期中关闭浏览器
+if (process.env.NODE_ENV !== 'production') {
+  process.on('beforeExit', async () => {
+    if (browserInstance) {
+      await browserInstance.close();
+    }
+  });
 }
 
 export { plugin as default };
